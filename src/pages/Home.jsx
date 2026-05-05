@@ -17,7 +17,8 @@ const Home = () => {
   }, []);
 
   const styles = `
-    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap');
+    /* Updated Font Imports */
+    @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap');
     
     :root {
       --primary: #1a56db;
@@ -26,16 +27,18 @@ const Home = () => {
       --light-slate: #64748b;
       --bg: #fdfdfd;
       --grid: rgba(10, 21, 30, 0.04);
+      /* Font Variables */
+      --font-heading: 'Bricolage Grotesque', sans-serif;
+      --font-body: 'Inter', sans-serif;
     }
 
     .home-root { 
-      font-family: 'DM Sans', sans-serif; 
+      font-family: var(--font-body); 
       background: var(--bg); 
       color: var(--navy); 
       overflow-x: hidden;
     }
     
-    /* 50px Blueprint Grid Background */
     .blueprint-bg {
       background-image: 
         linear-gradient(var(--grid) 1.5px, transparent 1.5px), 
@@ -43,7 +46,6 @@ const Home = () => {
       background-size: 50px 50px;
     }
 
-    /* Hero Section Refinement */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -65,7 +67,7 @@ const Home = () => {
     .hero-tag {
       background: rgba(26, 86, 219, 0.08);
       color: var(--primary);
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-heading);
       font-size: 0.75rem;
       font-weight: 800;
       padding: 8px 20px;
@@ -78,12 +80,12 @@ const Home = () => {
     }
 
     .hero h1 {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       font-size: clamp(3rem, 6vw, 4.5rem);
       line-height: 1;
       margin-bottom: 32px;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.03em;
       text-shadow: 0 10px 20px rgba(10, 15, 30, 0.05);
     }
 
@@ -132,7 +134,6 @@ const Home = () => {
 
     .btn-secondary:hover { background: #fff; border-color: var(--navy); }
 
-    /* Stats Banner - Authoritative Deep Tone */
     .stats-banner { 
       background: var(--navy); 
       padding: 100px 8%; 
@@ -151,7 +152,7 @@ const Home = () => {
       gap: 40px;
     }
     .stat-num { 
-      font-family: 'Syne', sans-serif; 
+      font-family: var(--font-heading); 
       font-size: 3.5rem; 
       font-weight: 800; 
       color: #3b82f6; 
@@ -160,12 +161,11 @@ const Home = () => {
     .stat-label { 
       opacity: 0.6; 
       font-weight: 500; 
-      font-size: 0.9rem; 
+      font-size: 0.85rem; 
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
-    /* 3-Column, 2-Row Modern Service Grid */
     .services-section { padding: 140px 8%; background: #f8fafc; }
     .services-grid {
       display: grid;
@@ -203,14 +203,13 @@ const Home = () => {
     }
     
     .sc-title { 
-      font-family: 'Syne', sans-serif; 
+      font-family: var(--font-heading); 
       font-weight: 800; 
       font-size: 1.6rem; 
       margin-bottom: 20px; 
     }
     .sc-desc { color: var(--light-slate); line-height: 1.7; font-size: 1rem; }
 
-    /* Credentials - Government Trust Strip */
     .cred-strip {
       display: flex;
       justify-content: center;
@@ -223,14 +222,13 @@ const Home = () => {
       border: 1px solid #e2e8f0;
       border-radius: 12px;
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       letter-spacing: 2px;
       color: var(--primary);
       background: #fff;
       box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
 
-    /* CTA Card - Production-Ready Engagement */
     .cta-card {
       background: linear-gradient(135deg, var(--navy) 0%, #1e293b 100%);
       padding: 120px 60px;
@@ -254,7 +252,7 @@ const Home = () => {
       background: radial-gradient(circle, rgba(26, 86, 219, 0.2) 0%, transparent 70%);
     }
 
-    .cta-card h2 { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 24px; }
+    .cta-card h2 { font-family: var(--font-heading); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 24px; }
     .cta-p { opacity: 0.7; margin-bottom: 48px; font-size: 1.3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
 
     .fade-in { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -319,7 +317,7 @@ const Home = () => {
 
       <section className="services-section" id="services">
         <div style={{ textAlign: 'center', marginBottom: '80px' }} className="fade-in">
-          <h2 style={{ fontFamily: 'Syne', fontSize: '3.5rem', fontWeight: 800 }}>Core Capabilities</h2>
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.5rem', fontWeight: 800 }}>Core Capabilities</h2>
           <p style={{ color: 'var(--light-slate)', fontSize: '1.2rem' }}>Engineered for industrial resilience and high-reliability environments.</p>
         </div>
         <div className="services-grid">
