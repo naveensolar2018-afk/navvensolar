@@ -1285,63 +1285,28 @@ const Home = () => {
 
       </section>
 
-      {/* SOLAR ENERGY SOLUTIONS SECTION */}
-      <section id="solar" style={{ background: "#eff6ff" }}>
+      <div className="solar-box fade-in">
 
-        <div className="container">
+        <h3 className="solar-title">
+          Smart Solar Street Lights
+        </h3>
 
-          <div className="section-head fade-in">
+        <p className="solar-desc">
+          High-performance solar lighting systems with
+          10 days battery backup, lithium-ion technology,
+          waterproof infrastructure and 2 years warranty
+          for residential and commercial deployments.
+        </p>
 
-            <h2>Solar Energy Solutions</h2>
-
-            <p>
-              Made in India solar street lighting and renewable security
-              infrastructure with premium lithium battery backup.
-            </p>
-
-          </div>
-
-          <div className="solar-box fade-in">
-
-            <h3
-              style={{
-                fontSize: "2rem",
-                marginBottom: "20px",
-                fontFamily: "'Bricolage Grotesque', sans-serif",
-              }}
-            >
-              Smart Solar Street Lights
-            </h3>
-
-            <p
-              style={{
-                maxWidth: "850px",
-                margin: "0 auto",
-                color: "#475569",
-                lineHeight: "1.9",
-                fontSize: "1.05rem",
-              }}
-            >
-              High-performance solar lighting systems with 10 days
-              battery backup, lithium-ion technology and 2 years warranty.
-            </p>
-
-            <div
-              style={{
-                marginTop: "25px",
-                color: "#2563eb",
-                fontSize: "2.3rem",
-                fontWeight: "800",
-              }}
-            >
-              Starting From ₹7,000
-            </div>
-
-          </div>
-
+        <div className="solar-price">
+          ₹7,000+
         </div>
 
-      </section>
+        <div className="solar-sub">
+          Enterprise Solar Infrastructure Solutions
+        </div>
+
+      </div>
 
       {/* CONTACT SECTION */}
 <section className="contact" id="contact">
