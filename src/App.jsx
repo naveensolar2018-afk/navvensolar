@@ -2,9 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Services from './pages/Services';
-import Pricing from './pages/Pricing';
-import About from './pages/About';
 
 function App() {
   const globalStyles = `
@@ -39,9 +36,6 @@ function App() {
         <main style={{ flex: 1, width: '100%' }}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/about" element={<About />} />
           </Routes>
         </main>
         <Footer />

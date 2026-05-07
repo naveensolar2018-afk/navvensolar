@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 const Home = () => {
   const observerRef = useRef(null);
@@ -6,362 +6,1442 @@ const Home = () => {
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add('visible');
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1 }
     );
-    document.querySelectorAll('.fade-in').forEach((el) => observerRef.current.observe(el));
+
+    document.querySelectorAll(".fade-in").forEach((el) => {
+      observerRef.current.observe(el);
+    });
+
     return () => observerRef.current?.disconnect();
   }, []);
 
+  const coreServices = [
+    {
+      icon: "🎥",
+      title: "CCTV & Surveillance",
+      desc: "Professional HD/IP CCTV installation, DVR/NVR setup, hidden cameras and enterprise monitoring systems.",
+    },
+    {
+      icon: "☀️",
+      title: "Solar Security",
+      desc: "Solar-powered surveillance infrastructure with lithium battery backup and remote monitoring.",
+    },
+    {
+      icon: "🛡️",
+      title: "Access Control",
+      desc: "Enterprise biometric access systems, alarms, motion sensors and security automation.",
+    },
+    {
+      icon: "🏢",
+      title: "Commercial Security",
+      desc: "Security architecture for offices, warehouses, apartments and industrial facilities.",
+    },
+  ];
+
+  const allServices = [
+    "Access Control Systems",
+    "Burglar Alarm Systems",
+    "Commercial Security Systems",
+    "Electronic Security Systems",
+    "Fire Alarm Systems",
+    "Intercom Installation",
+    "24/7 Monitoring Service",
+    "Motion Sensors",
+    "Residential Security Systems",
+    "Security Doors & Bars",
+    "Silent Alarm Systems",
+    "Video Surveillance Systems",
+    "Wireless Security Systems",
+    "Hidden Security Cameras",
+    "Cloud / Remote Access Security",
+    "Computer Security Services",
+    "Data Recovery Solutions",
+    "Threat Prevention Systems",
+    "Security Architecture Planning",
+    "Commercial Computer Security",
+    "Residential Computer Security",
+    "CCTV Camera Repair & Maintenance",
+    "Hikvision / Ezviz / CP Plus Cameras",
+  ];
+
+  const onsiteImages = [
+    "/image.webp",
+    "/image 1.webp",
+    "/image 2.jpg",
+    "/image 3.webp",
+    "/image 4.webp",
+    "/image 5.webp",
+    "/image 6.webp",
+    "/image 7.webp",
+    "/image 8.webp",
+    "/image 9.webp",
+    "/image 10.jpg",
+    "/image 11.jpg",
+    "/image 12.jpg",
+    "/image 13.jpg",
+    "/image 14.jpg",
+    "/image 15.jpg",
+  ];
+
+  const pricing = [
+    {
+      title: "Wireless Security Systems",
+      price: "₹2,999+",
+      desc: "Basic wireless surveillance package for homes & offices.",
+    },
+    {
+      title: "CCTV Camera Setup",
+      price: "₹2,500+",
+      desc: "HD CCTV installation with DVR/NVR support.",
+    },
+    {
+      title: "Advanced Wireless Systems",
+      price: "₹3,999+",
+      desc: "Premium wireless monitoring with remote mobile access.",
+    },
+    {
+      title: "Solar Security Systems",
+      price: "₹9,999+",
+      desc: "Solar-powered security systems with battery backup.",
+    },
+    {
+      title: "Solar Street Lights",
+      price: "₹7,000+",
+      desc: "Smart solar street lights with lithium battery backup.",
+    },
+  ];
+
+
+
   const styles = `
-    @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap');
-    
-    :root {
-      --primary: #1a56db;
-      --navy: #0a0f1e;
-      --slate: #475569;
-      --light-slate: #64748b;
-      --bg: #fdfdfd;
-      --grid: rgba(10, 21, 30, 0.04);
-      --font-heading: 'Bricolage Grotesque', sans-serif;
-      --font-body: 'Inter', sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap');
+
+  :root{
+    --primary:#2563eb;
+    --secondary:#60a5fa;
+    --dark:#050816;
+    --card:#ffffff;
+    --light:#f8fafc;
+    --text:#475569;
+    --border:#e2e8f0;
+  }
+
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  body{
+    overflow-x:hidden;
+    background:var(--light);
+    font-family:'Inter',sans-serif;
+  }
+
+  img{
+    max-width:100%;
+    display:block;
+  }
+
+  .home{
+    color:#0f172a;
+    width:100%;
+    overflow:hidden;
+  }
+
+  .container{
+    width:100%;
+    max-width:1500px;
+    margin:auto;
+    padding-inline:24px;
+  }
+
+  section{
+    padding:110px 0;
+  }
+
+  /* NAVBAR */
+
+  .navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,8,22,.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-container{
+    max-width:1500px;
+    margin:auto;
+    height:82px;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .logo{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:1.4rem;
+    font-weight:800;
+    color:#fff;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
+  .logo span{
+    color:var(--secondary);
+  }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:26px;
+    flex-wrap:wrap;
+  }
+
+  .nav-links a{
+    text-decoration:none;
+    color:rgba(255,255,255,.86);
+    font-size:.95rem;
+    font-weight:600;
+    transition:.3s ease;
+  }
+
+  .nav-links a:hover{
+    color:#fff;
+  }
+
+  .nav-contact-btn{
+    background:var(--primary);
+    padding:12px 22px;
+    border-radius:14px;
+  }
+
+  .nav-contact-btn:hover{
+    background:#1d4ed8;
+  }
+
+  /* ANIMATION */
+
+  .fade-in{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+  }
+
+  .fade-in.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* HERO */
+
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:#050816;
+    background-image:
+    linear-gradient(rgba(37,99,235,.15) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(37,99,235,.15) 1px,transparent 1px);
+    background-size:50px 50px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    padding-top:130px;
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 50%,
+    rgba(37,99,235,.18) 0%,
+    transparent 60%);
+  }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:70px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 22px;
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    margin-bottom:28px;
+    font-size:.8rem;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+
+  .hero h1{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:clamp(3rem,7vw,6rem);
+    line-height:1;
+    margin-bottom:28px;
+  }
+
+  .hero h1 span{
+    color:var(--secondary);
+  }
+
+  .hero p{
+    color:#cbd5e1;
+    line-height:1.9;
+    font-size:1.08rem;
+    margin-bottom:38px;
+    max-width:680px;
+  }
+
+  .hero-actions{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+
+  .primary-btn,
+  .secondary-btn{
+    text-decoration:none;
+    padding:16px 30px;
+    border-radius:16px;
+    font-weight:700;
+    transition:.35s ease;
+  }
+
+  .primary-btn{
+    background:var(--primary);
+    color:#fff;
+  }
+
+  .primary-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-4px);
+  }
+
+  .secondary-btn{
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.05);
+    color:#fff;
+  }
+
+  .secondary-btn:hover{
+    transform:translateY(-4px);
+  }
+
+  .hero-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    padding:20px;
+    overflow:hidden;
+    backdrop-filter:blur(10px);
+  }
+
+  .hero-card img{
+    width:100%;
+    height:580px;
+    object-fit:cover;
+    border-radius:22px;
+  }
+
+  /* SECTION HEAD */
+
+  .section-head{
+    text-align:center;
+    margin-bottom:70px;
+  }
+
+  .section-head h2{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:clamp(2.2rem,5vw,4rem);
+    margin-bottom:18px;
+  }
+
+  .section-head p{
+    max-width:850px;
+    margin:auto;
+    line-height:1.9;
+    color:var(--text);
+  }
+
+  /* SERVICES */
+
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:28px;
+    margin-bottom:70px;
+  }
+
+  .service-card{
+    background:#fff;
+    padding:36px;
+    border-radius:28px;
+    border:1px solid var(--border);
+    transition:.35s ease;
+  }
+
+  .service-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(37,99,235,.08);
+  }
+
+  .service-icon{
+    font-size:2.4rem;
+    margin-bottom:20px;
+  }
+
+  .service-card h3{
+    font-size:1.35rem;
+    margin-bottom:14px;
+  }
+
+  .service-card p{
+    line-height:1.8;
+    color:var(--text);
+  }
+
+  .services-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+  }
+
+  .service-list-item{
+    background:#fff;
+    border:1px solid var(--border);
+    padding:18px 20px;
+    border-radius:18px;
+    font-weight:600;
+  }
+
+  /* INSTALLATION */
+
+  .gallery{
+    background:#020617;
+    color:#fff;
+  }
+
+  .installation-scroll-wrapper{
+    width:100%;
+    overflow:hidden;
+  }
+
+  .installation-scroll-track{
+    display:flex;
+    gap:24px;
+    width:max-content;
+    animation:scrollInstallations 45s linear infinite;
+  }
+
+  .installation-scroll-track:hover{
+    animation-play-state:paused;
+  }
+
+  .installation-card{
+    width:340px;
+    min-width:340px;
+    height:430px;
+    border-radius:28px;
+    overflow:hidden;
+    position:relative;
+    background:#111827;
+  }
+
+  .installation-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s ease;
+  }
+
+  .installation-card:hover img{
+    transform:scale(1.08);
+  }
+
+  .installation-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.88),transparent);
+    display:flex;
+    align-items:flex-end;
+    padding:26px;
+  }
+
+  .installation-overlay h3{
+    font-size:1rem;
+    line-height:1.5;
+  }
+
+  @keyframes scrollInstallations{
+    from{
+      transform:translateX(0);
+    }
+    to{
+      transform:translateX(-50%);
+    }
+  }
+
+  /* PRICING */
+
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:24px;
+  }
+
+  .price-card{
+    background:#fff;
+    border-radius:26px;
+    border:1px solid var(--border);
+    padding:32px 24px;
+    text-align:center;
+    transition:.35s ease;
+  }
+
+  .price-card:hover{
+    transform:translateY(-8px);
+  }
+
+  .price{
+    font-size:2.2rem;
+    font-weight:800;
+    color:var(--primary);
+    margin:18px 0;
+  }
+
+  /* SOLAR */
+
+  .solar-box{
+    background:#fff;
+    border-radius:34px;
+    padding:60px 40px;
+    text-align:center;
+    border:1px solid #dbeafe;
+  }
+
+/* ================= CONTACT ================= */
+
+.contact{
+  background:
+  linear-gradient(
+    180deg,
+    #f8fbff 0%,
+    #ffffff 100%
+  );
+}
+
+.contact-wrapper{
+  background:#fff;
+  border:1px solid #dbeafe;
+  border-radius:32px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:320px 1fr;
+  box-shadow:
+  0 15px 40px rgba(15,23,42,.06);
+}
+
+/* LEFT */
+
+.contact-left{
+  background:
+  linear-gradient(
+    180deg,
+    #2563eb,
+    #1d4ed8
+  );
+  padding:40px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.profile-box{
+  text-align:center;
+}
+
+.profile-box img{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid rgba(255,255,255,.18);
+  margin:auto auto 24px;
+}
+
+.contact-tag{
+  display:inline-flex;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:18px;
+}
+
+.profile-info h3{
+  font-size:2rem;
+  color:#fff;
+  margin-bottom:10px;
+  font-family:'Bricolage Grotesque',sans-serif;
+}
+
+.role{
+  color:#dbeafe;
+  font-size:.82rem;
+  letter-spacing:1px;
+  margin-bottom:18px;
+  font-weight:700;
+}
+
+.profile-desc{
+  color:rgba(255,255,255,.92);
+  line-height:1.8;
+  font-size:.95rem;
+  max-width:250px;
+  margin:auto;
+}
+
+/* RIGHT */
+
+.contact-right{
+  padding:48px;
+}
+
+.contact-heading{
+  margin-bottom:34px;
+}
+
+.contact-heading span{
+  color:#2563eb;
+  font-size:.8rem;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.contact-heading h2{
+  font-size:clamp(2.2rem,4vw,3.5rem);
+  line-height:1;
+  margin:16px 0;
+  font-family:'Bricolage Grotesque',sans-serif;
+}
+
+.contact-heading p{
+  color:#64748b;
+  line-height:1.8;
+  max-width:650px;
+}
+
+/* GRID */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+
+.contact-card{
+  background:#f8fbff;
+  border:1px solid #dbeafe;
+  border-radius:22px;
+  padding:24px;
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  transition:.35s ease;
+  cursor:pointer;
+}
+
+.contact-card:hover{
+  transform:translateY(-6px);
+  background:#fff;
+  border-color:#93c5fd;
+  box-shadow:
+  0 18px 40px rgba(37,99,235,.08);
+}
+
+.contact-icon{
+  width:55px;
+  height:55px;
+  min-width:55px;
+  border-radius:18px;
+  background:#dbeafe;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.3rem;
+}
+
+.contact-card h4{
+  font-size:1rem;
+  margin-bottom:10px;
+  color:#0f172a;
+}
+
+.contact-card p{
+  color:#64748b;
+  line-height:1.7;
+  font-size:.92rem;
+  margin-top:8px;
+}
+
+.contact-card a{
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.95rem;
+}
+
+.contact-card a:hover{
+  text-decoration:underline;
+}
+
+/* BUTTONS */
+
+.contact-buttons{
+  margin-top:28px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.primary-contact-btn,
+.secondary-contact-btn{
+  padding:14px 24px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.3s ease;
+}
+
+.primary-contact-btn{
+  background:#2563eb;
+  color:#fff;
+}
+
+.primary-contact-btn:hover{
+  background:#1d4ed8;
+  transform:translateY(-3px);
+}
+
+.secondary-contact-btn{
+  border:1px solid #cbd5e1;
+  color:#0f172a;
+  background:#fff;
+}
+
+.secondary-contact-btn:hover{
+  transform:translateY(-3px);
+  border-color:#93c5fd;
+  box-shadow:
+  0 10px 25px rgba(37,99,235,.08);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+  .contact-wrapper{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .contact-right{
+    padding:36px 22px;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-heading{
+    text-align:center;
+  }
+
+  .contact-heading p{
+    margin:auto;
+  }
+
+  .contact-buttons{
+    flex-direction:column;
+  }
+
+  .primary-contact-btn,
+  .secondary-contact-btn{
+    width:100%;
+    text-align:center;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .profile-box img{
+    width:110px;
+    height:110px;
+  }
+
+  .profile-info h3{
+    font-size:1.6rem;
+  }
+
+  .contact-heading h2{
+    font-size:2rem;
+  }
+
+  .contact-card{
+    padding:18px;
+  }
+
+}
+
+  /* ========================= */
+  /* RESPONSIVE */
+  /* ========================= */
+
+  @media(max-width:1200px){
+
+    .hero-grid{
+      grid-template-columns:1fr;
+      text-align:center;
     }
 
-    .home-root { 
-      font-family: var(--font-body); 
-      background: var(--bg); 
-      color: var(--navy); 
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-    
-    .blueprint-bg {
-      background-image: 
-        linear-gradient(var(--grid) 1.5px, transparent 1.5px), 
-        linear-gradient(90deg, var(--grid) 1.5px, transparent 1.5px);
-      background-size: 50px 50px;
+    .hero-actions{
+      justify-content:center;
     }
 
-    /* --- Hero --- */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 160px 8% 100px;
-      position: relative;
+    .hero p{
+      margin-inline:auto;
     }
 
-    .hero-inner { 
-      max-width: 1400px; 
-      margin: 0 auto; 
-      display: grid; 
-      grid-template-columns: 1.2fr 0.8fr; 
-      gap: 100px; 
-      width: 100%; 
-      align-items: center;
+    .hero-card{
+      max-width:850px;
+      margin:auto;
     }
 
-    .hero h1 {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: clamp(3rem, 6vw, 4.5rem);
-      line-height: 1;
-      margin-bottom: 32px;
-      letter-spacing: -0.03em;
+    .contact-wrapper{
+      grid-template-columns:1fr;
     }
 
-    .hero h1 em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--primary), #0d9488, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .contact-left{
+      padding:60px 30px;
     }
 
-    .btn-primary { 
-      background: var(--primary); 
-      color: #fff; 
-      padding: 18px 40px; 
-      border-radius: 14px; 
-      font-weight: 700; 
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s;
+  }
+
+  @media(max-width:992px){
+
+    section{
+      padding:90px 0;
     }
 
-    .btn-primary:hover { transform: translateY(-4px); }
-
-    /* --- Refined Stats Banner --- */
-    .stats-banner { 
-      background: var(--navy); 
-      padding: 120px 8%; 
-      color: white;
-      border-radius: 60px 60px 0 0;
-      margin-top: -60px;
-      position: relative;
-      z-index: 2;
+    .nav-links{
+      gap:18px;
     }
 
-    .stats-inner { 
-      max-width: 1400px; 
-      margin: 0 auto; 
-      display: grid; 
-      grid-template-columns: repeat(4, 1fr); 
-      gap: 40px;
+    .hero-card img{
+      height:480px;
     }
 
-    .stat-item { text-align: center; }
-
-    .stat-num { 
-      font-family: var(--font-heading); 
-      font-size: 4rem; 
-      font-weight: 800; 
-      color: #3b82f6; 
-      margin-bottom: 16px; /* Space between number and text */
-      line-height: 1;
+    .contact-right{
+      padding:50px 30px;
     }
 
-    .stat-label { 
-      opacity: 0.7; 
-      font-weight: 600; 
-      font-size: 0.9rem; 
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      display: block;
+  }
+
+  @media(max-width:768px){
+
+    .navbar{
+      padding:0;
     }
 
-    /* --- Contact & Profile Center --- */
-    .contact-section {
-      padding: 140px 8%;
-      background: #fff;
+    .nav-container{
+      flex-direction:column;
+      justify-content:center;
+      gap:12px;
+      height:auto;
+      padding:18px 20px;
     }
 
-    .contact-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
+    .nav-links{
+      justify-content:center;
+      gap:14px;
     }
 
-    .profile-card {
-      background: #f8fafc;
-      padding: 60px 40px;
-      border-radius: 48px;
-      border: 1px solid #e2e8f0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 60px;
+    .hero{
+      text-align:center;
+      padding-top:180px;
     }
 
-    .profile-img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 32px;
-      border: 8px solid #fff;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    .hero h1{
+      font-size:2.9rem;
     }
 
-    .profile-name {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 8px;
+    .hero-card img{
+      height:380px;
     }
 
-    .profile-title {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 40px;
+    .hero-actions{
+      flex-direction:column;
+      align-items:center;
     }
 
-    .contact-info-horizontal {
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      flex-wrap: wrap;
-      list-style: none;
-      padding: 0;
+    .primary-btn,
+    .secondary-btn{
+      width:100%;
+      max-width:320px;
+      text-align:center;
     }
 
-    .contact-info-horizontal li {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .installation-card{
+      width:280px;
+      min-width:280px;
+      height:360px;
     }
 
-    .expert-desc h2 {
-      font-family: var(--font-heading);
-      font-size: 3rem;
-      margin-bottom: 24px;
-      letter-spacing: -1px;
+    .contact-action{
+      flex-direction:column;
     }
 
-    .expert-desc p {
-      font-size: 1.25rem;
-      line-height: 1.8;
-      color: var(--slate);
-      max-width: 800px;
-      margin: 0 auto;
+    .call-btn,
+    .map-btn{
+      width:100%;
+      text-align:center;
+      justify-content:center;
     }
 
-    /* --- Rest of Styles --- */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 8% 100px;
+  }
+
+  @media(max-width:640px){
+
+    .container{
+      padding-inline:18px;
     }
 
-    .service-card {
-      background: #fff;
-      border: 1px solid rgba(10, 15, 30, 0.05);
-      border-radius: 24px;
-      padding: 40px;
+    section{
+      padding:80px 0;
     }
 
-    .cred-strip {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      padding: 80px 8%;
-    }
-    
-    .cred-item {
-      padding: 12px 24px;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.75rem;
-      color: var(--primary);
+    .hero{
+      padding-top:200px;
     }
 
-    .fade-in { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .hero h1{
+      font-size:2.5rem;
+    }
 
-    @media (max-width: 1024px) {
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .hero-inner { grid-template-columns: 1fr; text-align: center; }
-      .contact-info-horizontal { flex-direction: column; gap: 20px; }
+    .hero p{
+      font-size:.98rem;
     }
-    @media (max-width: 768px) {
-      .stats-inner { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
+
+    .hero-card img{
+      height:300px;
     }
+
+    .service-card,
+    .price-card,
+    .contact-card{
+      padding:24px;
+    }
+
+    .solar-box{
+      padding:40px 24px;
+    }
+
+    .contact-heading h2{
+      font-size:2rem;
+    }
+
+  }
+
+  @media(max-width:480px){
+
+    .logo{
+      font-size:1.15rem;
+      text-align:center;
+    }
+
+    .nav-links{
+      gap:10px;
+    }
+
+    .nav-links a{
+      font-size:.82rem;
+    }
+
+    .hero h1{
+      font-size:2.1rem;
+    }
+
+    .tag{
+      font-size:.72rem;
+      padding:10px 16px;
+    }
+
+    .installation-card{
+      width:240px;
+      min-width:240px;
+      height:320px;
+    }
+
+    .profile img{
+      width:150px;
+      height:150px;
+    }
+
+    .contact-right{
+      padding:40px 20px;
+    }
+
+  }
   `;
 
   return (
-    <div className="home-root blueprint-bg">
+    <div className="home">
       <style>{styles}</style>
-      
+
+      {/* HERO SECTION */}
       <section className="hero">
-        <div className="hero-inner">
-          <div className="fade-in visible">
-            <div style={{ background: 'rgba(26, 86, 219, 0.08)', color: 'var(--primary)', padding: '8px 20px', borderRadius: '100px', display: 'inline-block', marginBottom: '32px', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '1.5px' }}>
-                SECURE · SUSTAINABLE · EST. 2018
+        <div className="container">
+
+          <div className="hero-grid">
+
+            <div className="fade-in visible">
+
+              <div className="tag">
+                ⚡ ENTERPRISE SECURITY • SOLAR INFRASTRUCTURE
+              </div>
+
+              <h1>
+                Enterprise Security & <span>Solar Infrastructure</span>
+              </h1>
+
+              <p>
+                Certified CCTV surveillance, wireless security systems,
+                solar-powered monitoring and enterprise infrastructure
+                protection solutions across Hyderabad and Telangana.
+              </p>
+
+              <div className="hero-actions">
+                <a href="#contact" className="primary-btn">
+                  Contact Us
+                </a>
+
+                <a href="#services" className="secondary-btn">
+                  Explore Services
+                </a>
+              </div>
+
             </div>
-            <h1>Enterprise Security & <em>Solar Infrastructure</em></h1>
-            <p style={{ color: 'var(--slate)', fontSize: '1.25rem', marginBottom: '48px', lineHeight: '1.6', maxWidth: '600px' }}>
-              Naveen CCTV & Solar delivers production-ready surveillance and renewable energy systems 
-              for government and industrial stakeholders across Hyderabad.
-            </p>
-            <a href="#contact" className="btn-primary">Contact Us Now →</a>
+
+            <div className="hero-card fade-in visible">
+              <img
+                src="/image 10.jpg"
+                alt="Security Infrastructure"
+              />
+            </div>
+
           </div>
-          <div className="fade-in visible" style={{ textAlign: 'center' }}>
-            <img 
-              src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=800" 
-              alt="Security Infrastructure" 
-              style={{ borderRadius: '48px', width: '100%', boxShadow: '0 40px 80px rgba(10, 15, 30, 0.12)' }} 
-            />
-          </div>
+
         </div>
       </section>
 
-      <section className="stats-banner">
-        <div className="stats-inner">
-          {[
-            { num: '500+', label: 'Projects Completed' },
-            { num: '6yr', label: 'In Operation' },
-            { num: '3×', label: 'Govt. Certified' },
-            { num: '24/7', label: 'Active Support' }
-          ].map((s, i) => (
-            <div key={i} className="stat-item fade-in">
-              <div className="stat-num">{s.num}</div>
-              <div className="stat-label">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* CORE SOLUTIONS SECTION */}
+      <section id="services">
+        <div className="container">
 
-      <section style={{ padding: '120px 0', background: '#f8fafc' }}>
-        <div style={{ textAlign: 'center', marginBottom: '80px' }} className="fade-in">
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.5rem', fontWeight: 800 }}>Core Capabilities</h2>
-        </div>
-        <div className="services-grid">
-          {[
-            { icon: '☀️', title: 'Solar Surveillance', desc: 'Autonomous 4G solar monitoring engineered for remote industrial landscapes.' },
-            { icon: '📹', title: 'HD CCTV Networks', desc: 'High-density IP security architecture customized for Hyderabad’s enterprise hubs.' },
-            { icon: '🏗️', title: 'Infrastructure Design', desc: 'Strategic end-to-end security architecture and command center deployment.' }
-          ].map((s, i) => (
-            <div key={i} className="service-card fade-in">
-              <div style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{s.icon}</div>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.4rem', marginBottom: '15px' }}>{s.title}</h3>
-              <p style={{ color: 'var(--light-slate)', lineHeight: '1.6' }}>{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+          <div className="section-head fade-in">
+            <h2>Core Solutions & Services</h2>
 
-      <section className="contact-section" id="contact">
-        <div className="contact-wrapper">
-          <div className="profile-card fade-in">
-            <img 
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400" 
-              alt="Naveen - Founder" 
-              className="profile-img"
-            />
-            <h3 className="profile-name">Naveen</h3>
-            <span className="profile-title">Founder & Technical Lead</span>
-            <ul className="contact-info-horizontal">
-              <li>📞 +91 90328 40296</li>
-              <li>📍 Hyderabad, Telangana</li>
-              <li>💼 Project Consultation</li>
-            </ul>
-          </div>
-          
-          <div className="expert-desc fade-in">
-            <h2>The Expert Behind <br/><em>Naveen CCTV & Solar</em></h2>
             <p>
-              With over 6 years of dedicated experience in the security and renewable energy sector, 
-              Naveen has pioneered integrated surveillance solutions across Telangana. Specializing 
-              in "Made in India" solar technologies and high-density CCTV networks, he bridges the 
-              gap between robust physical security and sustainable energy infrastructure.
+              Enterprise-grade surveillance, solar energy and integrated
+              security systems for residential, commercial and industrial
+              environments.
             </p>
           </div>
+
+          <div className="service-grid">
+            {coreServices.map((service, index) => (
+              <div className="service-card fade-in" key={index}>
+                <div className="service-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="services-list">
+            {allServices.map((service, index) => (
+              <div className="service-list-item fade-in" key={index}>
+                ✓ {service}
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      <div className="cred-strip fade-in">
-        {['GST REGISTERED', 'NSIC CERTIFIED', 'UDYAM MSME', 'MADE IN INDIA'].map((c, i) => (
-          <div key={i} className="cred-item">{c}</div>
-        ))}
+      {/* ONSITE INSTALLATIONS SECTION */}
+      <section className="gallery">
+
+        <div className="container">
+
+          <div className="section-head fade-in">
+
+            <h2 style={{ color: "#fff" }}>
+              Onsite Installations
+            </h2>
+
+            <p style={{ color: "#cbd5e1" }}>
+              Real deployment projects including CCTV surveillance,
+              solar-powered infrastructure, enterprise monitoring,
+              and commercial security installations.
+            </p>
+
+          </div>
+
+          <div className="installation-scroll-wrapper">
+
+            <div className="installation-scroll-track">
+
+              {[...onsiteImages, ...onsiteImages].map((image, index) => (
+
+                <div
+                  className="installation-card"
+                  key={index}
+                >
+                  <img
+                    src={image}
+                    alt={`installation-${index}`}
+                    loading="lazy"
+                  />
+
+                  <div className="installation-overlay">
+                    <h3>
+                      Enterprise CCTV & Solar Deployment
+                    </h3>
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* PRICING & PACKAGES SECTION */}
+      <section id="pricing">
+
+        <div className="container">
+
+          <div className="section-head fade-in">
+
+            <h2>Pricing & Packages</h2>
+
+            <p>
+              Affordable enterprise-grade security systems engineered for
+              reliability and long-term performance.
+            </p>
+
+          </div>
+
+          <div className="pricing-grid">
+            {pricing.map((item, index) => (
+              <div className="price-card fade-in" key={index}>
+                <h3>{item.title}</h3>
+                <div className="price">{item.price}</div>
+                <p>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* SOLAR ENERGY SOLUTIONS SECTION */}
+      <section id="solar" style={{ background: "#eff6ff" }}>
+
+        <div className="container">
+
+          <div className="section-head fade-in">
+
+            <h2>Solar Energy Solutions</h2>
+
+            <p>
+              Made in India solar street lighting and renewable security
+              infrastructure with premium lithium battery backup.
+            </p>
+
+          </div>
+
+          <div className="solar-box fade-in">
+
+            <h3
+              style={{
+                fontSize: "2rem",
+                marginBottom: "20px",
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+              }}
+            >
+              Smart Solar Street Lights
+            </h3>
+
+            <p
+              style={{
+                maxWidth: "850px",
+                margin: "0 auto",
+                color: "#475569",
+                lineHeight: "1.9",
+                fontSize: "1.05rem",
+              }}
+            >
+              High-performance solar lighting systems with 10 days
+              battery backup, lithium-ion technology and 2 years warranty.
+            </p>
+
+            <div
+              style={{
+                marginTop: "25px",
+                color: "#2563eb",
+                fontSize: "2.3rem",
+                fontWeight: "800",
+              }}
+            >
+              Starting From ₹7,000
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* CONTACT SECTION */}
+<section className="contact" id="contact">
+
+  <div className="container">
+
+    <div className="contact-wrapper fade-in">
+
+      {/* LEFT SIDE */}
+
+      <div className="contact-left">
+
+        <div className="profile-box">
+
+          <img
+            src="/Profile.jpeg"
+            alt="Naveen"
+            onError={(e) => {
+              e.target.src =
+                "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=500";
+            }}
+          />
+
+          <div className="profile-info">
+
+            <span className="contact-tag">
+              ENTERPRISE SECURITY EXPERT
+            </span>
+
+            <h3>Naveen</h3>
+
+            <p className="role">
+              Founder & Technical Lead
+            </p>
+
+            <p className="profile-desc">
+              Providing enterprise CCTV surveillance,
+              solar infrastructure, wireless monitoring
+              and advanced security systems for homes,
+              offices and commercial environments.
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <footer style={{ background: 'var(--navy)', color: '#fff', padding: '60px 8%', textAlign: 'center' }}>
-        <p style={{ opacity: 0.6 }}>© {new Date().getFullYear()} NAVEEN CCTV CAMERA & SOLAR CAMERA. All rights reserved.</p>
-      </footer>
+      {/* RIGHT SIDE */}
+
+      <div className="contact-right">
+
+        <div className="contact-heading">
+
+          <span>CONTACT DETAILS</span>
+
+          <h2>
+            Get In Touch
+          </h2>
+
+          <p>
+            Professional CCTV installation, solar security,
+            wireless monitoring and enterprise surveillance
+            services across Hyderabad & Telangana.
+          </p>
+
+        </div>
+
+        <div className="contact-grid">
+
+          <div className="contact-card">
+
+            <div className="contact-icon">
+              📞
+            </div>
+
+            <div>
+              <h4>Phone Number</h4>
+
+              <a href="tel:+919032840296">
+                +91 90328 40296
+              </a>
+
+              <p>
+                Available for installations, support
+                and enterprise consultations.
+              </p>
+            </div>
+
+          </div>
+
+          <div className="contact-card">
+
+            <div className="contact-icon">
+              📍
+            </div>
+
+            <div>
+              <h4>Service Location</h4>
+
+              <p>
+                Hyderabad, Telangana, India
+              </p>
+
+              <p>
+                Residential, commercial and industrial
+                security deployment services.
+              </p>
+            </div>
+
+          </div>
+
+          <div className="contact-card">
+
+            <div className="contact-icon">
+              🏢
+            </div>
+
+            <div>
+              <h4>Service Branch</h4>
+
+              <a
+                href="https://google.com/maps/place/NAVEEN+CCTV+CAMERA%26SOLAR+CAMERA/@17.4545863,78.5321833,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9b3f40bf435f:0x1dceaf19a10ff78e!8m2!3d17.4545812!4d78.5347582!16s%2Fg%2F11nxqg696w"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Service Branch →
+              </a>
+
+              <p>
+                NAVEEN CCTV CAMERA & SOLAR CAMERA
+              </p>
+            </div>
+
+          </div>
+
+          <div className="contact-card">
+
+            <div className="contact-icon">
+              🗺️
+            </div>
+
+            <div>
+              <h4>Main Branch</h4>
+
+              <a
+                href="https://www.google.com/maps?q=17.45783233642578,78.5448989868164&z=17&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Main Branch →
+              </a>
+
+              <p>
+                Main office & technical support center.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div className="contact-buttons">
+
+          <a
+            href="tel:+919032840296"
+            className="primary-contact-btn"
+          >
+            📞 Call Now
+          </a>
+
+          <a
+            href="https://google.com/maps/place/NAVEEN+CCTV+CAMERA%26SOLAR+CAMERA/@17.4545863,78.5321833,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9b3f40bf435f:0x1dceaf19a10ff78e!8m2!3d17.4545812!4d78.5347582!16s%2Fg%2F11nxqg696w"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="secondary-contact-btn"
+          >
+            📍 Visit Branch
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
     </div>
   );
 };

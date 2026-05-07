@@ -1,126 +1,765 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const styles = {
     footer: {
-      backgroundColor: '#0a0e1a',
-      color: '#ffffff',
-      padding: '60px 5% 40px',
-      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+      background:
+        'linear-gradient(180deg,#04060b 0%,#0b1220 50%,#04060b 100%)',
+      color: '#fff',
+      padding: '70px 5% 30px',
+      fontFamily: "'Inter', sans-serif",
+      borderTop: '1px solid rgba(255,255,255,.06)',
+      overflow: 'hidden',
     },
-    topSection: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-between',
-      gap: '40px',
+
+    container: {
+      maxWidth: '1400px',
+      margin: '0 auto',
+    },
+
+    topGrid: {
+      display: 'grid',
+      gridTemplateColumns: '1.15fr .85fr 1fr',
+      gap: '28px',
       marginBottom: '50px',
     },
-    brandColumn: { flex: '1 1 300px' },
-    logo: { fontSize: '24px', fontWeight: 'bold', marginBottom: '15px', color: '#fff' },
-    description: { color: '#a0a0a0', fontSize: '14px', lineHeight: '1.6', marginBottom: '20px' },
-    linkColumn: { flex: '1 1 150px' },
-    columnTitle: { fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '20px', color: '#fff' },
-    list: { listStyle: 'none', padding: 0, margin: 0 },
-    listItem: { marginBottom: '12px' },
-    link: { color: '#a0a0a0', textDecoration: 'none', fontSize: '14px' },
-    mapColumn: { flex: '1 1 400px' },
-    mapContainer: { borderRadius: '12px', overflow: 'hidden', border: '1px solid #1e2533', height: '200px' },
-    bottomSection: { borderTop: '1px solid #1e2533', paddingTop: '40px', display: 'flex', flexWrap: 'wrap', gap: '30px' },
-    hubColumn: { flex: '1 1 250px' },
-    hubTitle: { color: '#0066ff', fontSize: '13px', fontWeight: 'bold', marginBottom: '20px', display: 'flex', alignItems: 'center' },
-    hubItem: { marginBottom: '15px' },
-    hubName: { fontSize: '14px', fontWeight: '600', display: 'block', color: '#fff' },
-    hubDesc: { fontSize: '12px', color: '#606060' }
+
+    leftColumn: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+
+    logo: {
+      fontSize: '34px',
+      fontWeight: '800',
+      letterSpacing: '-0.04em',
+      marginBottom: '18px',
+      lineHeight: '1.1',
+    },
+
+    blue: {
+      color: '#3b82f6',
+    },
+
+    description: {
+      color: '#94a3b8',
+      fontSize: '14px',
+      lineHeight: '1.9',
+      marginBottom: '30px',
+      maxWidth: '520px',
+    },
+
+    branchCard: {
+      background: 'rgba(255,255,255,.04)',
+      border: '1px solid rgba(255,255,255,.08)',
+      borderRadius: '24px',
+      padding: '24px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '22px',
+      boxShadow: '0 12px 30px rgba(0,0,0,.2)',
+    },
+
+    branchBlock: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '12px',
+    },
+
+    divider: {
+      borderTop: '1px solid rgba(255,255,255,.08)',
+      paddingTop: '22px',
+    },
+
+    sectionLabel: {
+      color: '#60a5fa',
+      fontSize: '12px',
+      fontWeight: '800',
+      letterSpacing: '.08em',
+    },
+
+    address: {
+      color: '#dbe4f0',
+      lineHeight: '1.8',
+      fontSize: '14px',
+    },
+
+    phone: {
+      color: '#60a5fa',
+      textDecoration: 'none',
+      fontWeight: '700',
+      width: 'fit-content',
+      fontSize: '14px',
+    },
+
+    mapLink: {
+      color: '#60a5fa',
+      textDecoration: 'none',
+      fontWeight: '700',
+      fontSize: '14px',
+      width: 'fit-content',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      transition: '.3s ease',
+    },
+
+    centerColumn: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '24px',
+    },
+
+    card: {
+      background: 'rgba(255,255,255,.04)',
+      border: '1px solid rgba(255,255,255,.08)',
+      borderRadius: '22px',
+      padding: '24px',
+      boxShadow: '0 12px 30px rgba(0,0,0,.18)',
+    },
+
+    cardTitle: {
+      color: '#60a5fa',
+      fontSize: '13px',
+      fontWeight: '800',
+      letterSpacing: '.08em',
+      marginBottom: '18px',
+    },
+
+    list: {
+      listStyle: 'none',
+      padding: 0,
+      margin: 0,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '14px',
+    },
+
+    link: {
+      color: '#dbe4f0',
+      textDecoration: 'none',
+      fontSize: '14px',
+      fontWeight: '500',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+      transition: 'all .3s ease',
+    },
+
+    pdfLink: {
+      color: '#fff',
+      textDecoration: 'none',
+      background: 'linear-gradient(135deg,#2563eb,#1d4ed8)',
+      padding: '14px 16px',
+      borderRadius: '14px',
+      fontSize: '13px',
+      fontWeight: '700',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      boxShadow: '0 10px 24px rgba(37,99,235,.25)',
+      transition: '.3s ease',
+    },
+
+    mapsColumn: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '24px',
+    },
+
+    mapCard: {
+      background: 'rgba(255,255,255,.04)',
+      border: '1px solid rgba(255,255,255,.08)',
+      borderRadius: '22px',
+      overflow: 'hidden',
+      boxShadow: '0 12px 30px rgba(0,0,0,.2)',
+    },
+
+    mapHeader: {
+      padding: '16px 18px',
+      borderBottom: '1px solid rgba(255,255,255,.06)',
+      color: '#60a5fa',
+      fontSize: '12px',
+      fontWeight: '800',
+      letterSpacing: '.08em',
+      background: 'rgba(255,255,255,.02)',
+    },
+
+    iframe: {
+      width: '100%',
+      height: '240px',
+      border: 0,
+    },
+
+    coverageGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3,1fr)',
+      gap: '24px',
+      borderTop: '1px solid rgba(255,255,255,.08)',
+      paddingTop: '38px',
+    },
+
+    coverageCard: {
+      background: 'rgba(255,255,255,.03)',
+      border: '1px solid rgba(255,255,255,.06)',
+      borderRadius: '22px',
+      padding: '24px',
+      transition: '.3s ease',
+    },
+
+    coverageTitle: {
+      color: '#60a5fa',
+      fontSize: '13px',
+      fontWeight: '800',
+      letterSpacing: '.08em',
+      marginBottom: '18px',
+    },
+
+    coverageItem: {
+      marginBottom: '16px',
+    },
+
+    coverageName: {
+      display: 'block',
+      color: '#fff',
+      fontSize: '15px',
+      fontWeight: '700',
+      marginBottom: '5px',
+    },
+
+    coverageDesc: {
+      color: '#94a3b8',
+      fontSize: '13px',
+      lineHeight: '1.7',
+    },
+
+    bottomBar: {
+      marginTop: '48px',
+      paddingTop: '24px',
+      borderTop: '1px solid rgba(255,255,255,.06)',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      gap: '18px',
+      color: '#64748b',
+      fontSize: '12px',
+    },
+
+    bottomLinks: {
+      display: 'flex',
+      gap: '18px',
+      flexWrap: 'wrap',
+    },
+
+    bottomLink: {
+      color: '#94a3b8',
+      textDecoration: 'none',
+      fontSize: '12px',
+    },
   };
 
   return (
-    <footer style={styles.footer}>
-      {/* Top Section */}
-      <div style={styles.topSection}>
-        <div style={styles.brandColumn}>
-          <div style={styles.logo}>NAVEEN <span style={{color: '#0066ff'}}>CCTV & SOLAR</span></div>
-          <p style={styles.description}>
-            5-Star Rated Security Installation Service providing advanced surveillance 
-            solutions, wireless solar cameras, and 24/7 monitoring support across Telangana.
-          </p>
-          <div style={{ background: '#111827', padding: '15px', borderRadius: '8px', border: '1px solid #1e2533', display: 'inline-flex', alignItems: 'center', gap: '15px' }}>
-            <div style={{ background: '#1e2533', padding: '8px 12px', borderRadius: '4px', fontWeight: 'bold', color: '#0066ff' }}>5.0 ★</div>
-            <div>
-              <div style={{ fontSize: '10px', color: '#0066ff', fontWeight: 'bold' }}>GOOGLE VERIFIED</div>
-              <div style={{ fontSize: '12px', fontWeight: 'bold' }}>810+ REVIEWS</div>
+    <>
+      <style>
+        {`
+          *{
+            box-sizing:border-box;
+          }
+
+          html{
+            scroll-behavior:smooth;
+          }
+
+          .footer-hover:hover{
+            transform:translateY(-5px);
+            border-color:rgba(96,165,250,.35) !important;
+            box-shadow:0 18px 40px rgba(37,99,235,.12) !important;
+          }
+
+          .footer-link:hover{
+            color:#60a5fa !important;
+            transform:translateX(6px);
+          }
+
+          .footer-map-link:hover{
+            transform:translateX(6px);
+          }
+
+          .footer-doc:hover{
+            transform:translateY(-3px);
+          }
+
+          @media(max-width:1150px){
+
+            .footer-top-grid{
+              grid-template-columns:1fr !important;
+            }
+
+            .footer-coverage-grid{
+              grid-template-columns:1fr !important;
+            }
+
+          }
+
+          @media(max-width:768px){
+
+            .footer-main{
+              padding:58px 20px 28px !important;
+            }
+
+            .footer-logo{
+              font-size:26px !important;
+            }
+
+            .footer-bottom{
+              flex-direction:column !important;
+              align-items:flex-start !important;
+            }
+
+            .footer-card{
+              padding:20px !important;
+            }
+
+          }
+
+          @media(max-width:480px){
+
+            .footer-main{
+              padding:48px 16px 24px !important;
+            }
+
+            .footer-logo{
+              font-size:22px !important;
+            }
+
+          }
+        `}
+      </style>
+
+      <footer style={styles.footer} className="footer-main">
+
+        <div style={styles.container}>
+
+          {/* TOP GRID */}
+
+          <div style={styles.topGrid} className="footer-top-grid">
+
+            {/* LEFT */}
+
+            <div style={styles.leftColumn}>
+
+              <div style={styles.logo} className="footer-logo">
+                NAVEEN <span style={styles.blue}>SOLAR & CCTV</span>
+              </div>
+
+              <p style={styles.description}>
+                Enterprise-grade CCTV surveillance, solar-powered
+                camera systems, wireless monitoring and advanced
+                security infrastructure services across Hyderabad
+                and nearby operational regions.
+              </p>
+
+              <div
+                style={styles.branchCard}
+                className="footer-hover"
+              >
+
+                {/* MAIN */}
+
+                <div style={styles.branchBlock}>
+
+                  <div style={styles.sectionLabel}>
+                    MAIN BRANCH & SERVICE CENTER
+                  </div>
+
+                  <div style={styles.address}>
+                    Plot No. 7-93/1,
+                    <br />
+                    Hyderabad, Telangana,
+                    <br />
+                    India
+                  </div>
+
+                  <a
+                    href="tel:+919032840296"
+                    style={styles.phone}
+                  >
+                    📞 +91 90328 40296
+                  </a>
+
+                  <a
+                    href="https://www.google.com/maps?q=17.45783233642578,78.5448989868164&z=17&hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={styles.mapLink}
+                    className="footer-map-link"
+                  >
+                    📍 Open Main Branch
+                  </a>
+
+                </div>
+
+                {/* SERVICE */}
+
+                <div
+                  style={{
+                    ...styles.branchBlock,
+                    ...styles.divider,
+                  }}
+                >
+
+                  <div style={styles.sectionLabel}>
+                    SERVICE BRANCH
+                  </div>
+
+                  <div style={styles.address}>
+                    NAVEEN CCTV CAMERA & SOLAR CAMERA,
+                    <br />
+                    Malkajgiri,
+                    <br />
+                    Secunderabad, Telangana
+                  </div>
+
+                  <a
+                    href="https://www.google.com/maps/place/NAVEEN+CCTV+CAMERA%26SOLAR+CAMERA/@17.4545863,78.5321833,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9b3f40bf435f:0x1dceaf19a10ff78e!8m2!3d17.4545812!4d78.5347582!16s%2Fg%2F11nxqg696w"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={styles.mapLink}
+                    className="footer-map-link"
+                  >
+                    📍 Open Service Branch
+                  </a>
+
+                </div>
+
+              </div>
+
             </div>
+
+            {/* CENTER */}
+
+            <div style={styles.centerColumn}>
+
+              {/* QUICK LINKS */}
+
+              <div
+                style={styles.card}
+                className="footer-card footer-hover"
+              >
+
+                <div style={styles.cardTitle}>
+                  QUICK LINKS
+                </div>
+
+                <ul style={styles.list}>
+
+                  <li>
+                    <a
+                      href="/"
+                      style={styles.link}
+                      className="footer-link"
+                    >
+                      → Home
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="/#services"
+                      style={styles.link}
+                      className="footer-link"
+                    >
+                      → Services
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="/#pricing"
+                      style={styles.link}
+                      className="footer-link"
+                    >
+                      → Pricing
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="/#solar"
+                      style={styles.link}
+                      className="footer-link"
+                    >
+                      → Solar Solutions
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="/#contact"
+                      style={styles.link}
+                      className="footer-link"
+                    >
+                      → Contact
+                    </a>
+                  </li>
+
+                </ul>
+
+              </div>
+
+              {/* DOCUMENTS */}
+
+              <div
+                style={styles.card}
+                className="footer-card footer-hover"
+              >
+
+                <div style={styles.cardTitle}>
+                  BUSINESS DOCUMENTS
+                </div>
+
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '12px',
+                  }}
+                >
+
+                  <a
+                    href="/GST.pdf"
+                    download
+                    style={styles.pdfLink}
+                    className="footer-doc"
+                  >
+                    GST Registration
+                    <span>↓</span>
+                  </a>
+
+                  <a
+                    href="/nsic.pdf"
+                    download
+                    style={styles.pdfLink}
+                    className="footer-doc"
+                  >
+                    NSIC Certificate
+                    <span>↓</span>
+                  </a>
+
+                  <a
+                    href="/Udyam.pdf"
+                    download
+                    style={styles.pdfLink}
+                    className="footer-doc"
+                  >
+                    UDYAM Certificate
+                    <span>↓</span>
+                  </a>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* MAPS */}
+
+            <div style={styles.mapsColumn}>
+
+              <div
+                style={styles.mapCard}
+                className="footer-hover"
+              >
+
+                <div style={styles.mapHeader}>
+                  MAIN BRANCH LOCATION
+                </div>
+
+                <iframe
+                  title="Main Branch"
+                  src="https://www.google.com/maps?q=17.4578333,78.5448889&z=16&output=embed"
+                  style={styles.iframe}
+                  loading="lazy"
+                  allowFullScreen=""
+                />
+
+              </div>
+
+              <div
+                style={styles.mapCard}
+                className="footer-hover"
+              >
+
+                <div style={styles.mapHeader}>
+                  SERVICE BRANCH LOCATION
+                </div>
+
+                <iframe
+                  title="Service Branch"
+                  src="https://www.google.com/maps?q=17.4545812,78.5347582&z=16&output=embed"
+                  style={styles.iframe}
+                  loading="lazy"
+                  allowFullScreen=""
+                />
+
+              </div>
+
+            </div>
+
           </div>
+
+          {/* COVERAGE */}
+
+          <div
+            style={styles.coverageGrid}
+            className="footer-coverage-grid"
+          >
+
+            <div
+              style={styles.coverageCard}
+              className="footer-hover"
+            >
+
+              <div style={styles.coverageTitle}>
+                SERVICE COVERAGE
+              </div>
+
+              <div style={styles.coverageItem}>
+                <span style={styles.coverageName}>
+                  Hyderabad & Nearby Areas
+                </span>
+
+                <span style={styles.coverageDesc}>
+                  CCTV deployment, wireless monitoring,
+                  solar surveillance and commercial security systems.
+                </span>
+              </div>
+
+              <div style={styles.coverageItem}>
+                <span style={styles.coverageName}>
+                  50 KM Operational Radius
+                </span>
+
+                <span style={styles.coverageDesc}>
+                  Installation, maintenance,
+                  inspections and AMC support services.
+                </span>
+              </div>
+
+            </div>
+
+            <div
+              style={styles.coverageCard}
+              className="footer-hover"
+            >
+
+              <div style={styles.coverageTitle}>
+                SUPPORT & SERVICES
+              </div>
+
+              <div style={styles.coverageItem}>
+                <span style={styles.coverageName}>
+                  24/7 Technical Support
+                </span>
+
+                <span style={styles.coverageDesc}>
+                  Emergency troubleshooting,
+                  remote guidance and support response.
+                </span>
+              </div>
+
+              <div style={styles.coverageItem}>
+                <span style={styles.coverageName}>
+                  On-Site Consultation
+                </span>
+
+                <span style={styles.coverageDesc}>
+                  Security planning, inspection
+                  and infrastructure consultation.
+                </span>
+              </div>
+
+            </div>
+
+            <div
+              style={styles.coverageCard}
+              className="footer-hover"
+            >
+
+              <div style={styles.coverageTitle}>
+                BUSINESS STATUS
+              </div>
+
+              <div style={styles.coverageItem}>
+                <span style={styles.coverageName}>
+                  GST • NSIC • UDYAM
+                </span>
+
+                <span style={styles.coverageDesc}>
+                  Registered enterprise security
+                  and surveillance service provider.
+                </span>
+              </div>
+
+              <div style={styles.coverageItem}>
+                <span style={styles.coverageName}>
+                  Residential & Commercial
+                </span>
+
+                <span style={styles.coverageDesc}>
+                  Security solutions for homes,
+                  offices, warehouses and industries.
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* BOTTOM */}
+
+          <div
+            style={styles.bottomBar}
+            className="footer-bottom"
+          >
+
+            <div>
+              © {new Date().getFullYear()} NAVEEN CCTV & SOLAR.
+              All Rights Reserved.
+            </div>
+
+            <div style={styles.bottomLinks}>
+
+              <a
+                href="/privacy"
+                style={styles.bottomLink}
+              >
+                Privacy Policy
+              </a>
+
+              <a
+                href="/terms"
+                style={styles.bottomLink}
+              >
+                Terms & Conditions
+              </a>
+
+              <a
+                href="/#services"
+                style={styles.bottomLink}
+              >
+                Service Coverage
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div style={styles.linkColumn}>
-          <div style={styles.columnTitle}>Company</div>
-          <ul style={styles.list}>
-            <li style={styles.listItem}><Link to="/about" style={styles.link}>About Us</Link></li>
-            <li style={styles.listItem}><Link to="/" style={styles.link}>Contact</Link></li>
-            <li style={styles.listItem}><Link to="/pricing" style={styles.link}>Pricing</Link></li>
-            <li style={styles.listItem}><Link to="/services" style={styles.link}>Services</Link></li>
-          </ul>
-        </div>
-
-        <div style={styles.mapColumn}>
-          <div style={styles.columnTitle}>Service Headquarters</div>
-          <div style={styles.mapContainer}>
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.241584984534!2d78.5283437!3d17.4481561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9bca2b73369d%3A0x6b107e38f71f65f3!2sNaveen%20CCTV%20Camera%20%26%20Solar%20Camera!5e0!3m2!1sen!2sin!4v1714900000000!5m2!1sen!2sin" 
-              width="100%" height="100%" style={{border: 0}} allowFullScreen="" loading="lazy">
-            </iframe>
-          </div>
-          <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'space-between', fontSize: '12px', color: '#a0a0a0' }}>
-            <span>Malkajgiri, Secunderabad, Telangana 500047</span>
-            <a href="tel:09032840296" style={{color: '#0066ff', textDecoration: 'none', fontWeight: 'bold'}}>090328 40296</a>
-          </div>
-        </div>
-      </div>
-
-      <div style={{ textAlign: 'center', fontSize: '10px', color: '#303030', letterSpacing: '2px', marginBottom: '30px' }}>
-        LOCAL SERVICE DELIVERY NETWORK
-      </div>
-
-      {/* Bottom Service Hubs Section */}
-      <div style={styles.bottomSection}>
-        <div style={styles.hubColumn}>
-          <div style={styles.hubTitle}>▼ HYDERABAD HUBS</div>
-          <div style={styles.hubItem}>
-            <span style={styles.hubName}>Malkajgiri</span>
-            <span style={styles.hubDesc}>Primary Service & Demo Center</span>
-          </div>
-          <div style={styles.hubItem}>
-            <span style={styles.hubName}>Secunderabad</span>
-            <span style={styles.hubDesc}>Industrial & Commercial Security</span>
-          </div>
-        </div>
-
-        <div style={styles.hubColumn}>
-          <div style={styles.hubTitle}>▼ TELANGANA REACH</div>
-          <div style={styles.hubItem}>
-            <span style={styles.hubName}>Warangal</span>
-            <span style={styles.hubDesc}>Residential Solar Surveillance</span>
-          </div>
-          <div style={styles.hubItem}>
-            <span style={styles.hubName}>Nizamabad</span>
-            <span style={styles.hubDesc}>Remote Farm Monitoring Solutions</span>
-          </div>
-        </div>
-
-        <div style={styles.hubColumn}>
-          <div style={styles.hubTitle}>▼ AVAILABILITY</div>
-          <div style={styles.hubItem}>
-            <span style={styles.hubName}>Open 24 Hours</span>
-            <span style={styles.hubDesc}>Emergency Support & Site Visits</span>
-          </div>
-          <div style={styles.hubItem}>
-            <span style={styles.hubName}>Pan-Telangana</span>
-            <span style={styles.hubDesc}>Security Consultancy & AMC</span>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
