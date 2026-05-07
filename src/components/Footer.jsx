@@ -246,6 +246,28 @@ const Footer = () => {
       fontSize: '12px',
     },
 
+    bottomLeft: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '8px',
+    },
+
+    poweredBy: {
+      color: '#94a3b8',
+      fontSize: '12px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '6px',
+      flexWrap: 'wrap',
+    },
+
+    poweredLink: {
+      color: '#60a5fa',
+      textDecoration: 'none',
+      transition: '.3s ease',
+      fontWeight: '600',
+    },
+
     bottomLinks: {
       display: 'flex',
       gap: '18px',
@@ -288,6 +310,10 @@ const Footer = () => {
 
           .footer-doc:hover{
             transform:translateY(-3px);
+          }
+
+          .footer-powered-link:hover{
+            color:#93c5fd !important;
           }
 
           @media(max-width:1150px){
@@ -365,8 +391,6 @@ const Footer = () => {
                 className="footer-hover"
               >
 
-                {/* MAIN */}
-
                 <div style={styles.branchBlock}>
 
                   <div style={styles.sectionLabel}>
@@ -399,8 +423,6 @@ const Footer = () => {
                   </a>
 
                 </div>
-
-                {/* SERVICE */}
 
                 <div
                   style={{
@@ -440,8 +462,6 @@ const Footer = () => {
             {/* CENTER */}
 
             <div style={styles.centerColumn}>
-
-              {/* QUICK LINKS */}
 
               <div
                 style={styles.card}
@@ -507,8 +527,6 @@ const Footer = () => {
                 </ul>
 
               </div>
-
-              {/* DOCUMENTS */}
 
               <div
                 style={styles.card}
@@ -724,22 +742,39 @@ const Footer = () => {
             className="footer-bottom"
           >
 
-            <div>
-              © {new Date().getFullYear()} NAVEEN CCTV & SOLAR.
-              All Rights Reserved.
+            <div style={styles.bottomLeft}>
+
+              <div>
+                © {new Date().getFullYear()} NAVEEN CCTV & SOLAR.
+                All Rights Reserved.
+              </div>
+
+              <div style={styles.poweredBy}>
+                Powered by
+                <a
+                  href="https://noreatrix.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={styles.poweredLink}
+                  className="footer-powered-link"
+                >
+                  Noreatrix Technologies
+                </a>
+              </div>
+
             </div>
 
             <div style={styles.bottomLinks}>
 
               <a
-                href="/privacy"
+                href="#"
                 style={styles.bottomLink}
               >
                 Privacy Policy
               </a>
 
               <a
-                href="/terms"
+                href="#"
                 style={styles.bottomLink}
               >
                 Terms & Conditions
