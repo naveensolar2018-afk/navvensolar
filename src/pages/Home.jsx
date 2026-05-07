@@ -535,14 +535,104 @@ const Home = () => {
     margin:18px 0;
   }
 
-  /* SOLAR */
+   /* SOLAR */
 
   .solar-box{
-    background:#fff;
+    background:#ffffff;
     border-radius:34px;
-    padding:60px 40px;
+    padding:60px 50px;
     text-align:center;
     border:1px solid #dbeafe;
+    box-shadow:
+    0 18px 45px rgba(37,99,235,.06);
+    max-width:1000px;
+    margin:auto;
+  }
+
+  .solar-title{
+    font-size:clamp(2rem,4vw,3.2rem);
+    margin-bottom:18px;
+    line-height:1.1;
+    font-family:'Bricolage Grotesque',sans-serif;
+    color:#0f172a;
+  }
+
+  .solar-desc{
+    max-width:760px;
+    margin:0 auto;
+    color:#475569;
+    line-height:1.9;
+    font-size:1.05rem;
+  }
+
+  .solar-price{
+    margin-top:28px;
+    color:#2563eb;
+    font-size:clamp(2rem,5vw,3rem);
+    font-weight:800;
+    line-height:1;
+  }
+
+  .solar-sub{
+    margin-top:10px;
+    color:#64748b;
+    font-size:.92rem;
+    letter-spacing:.04em;
+  }
+
+  /* TABLET */
+
+  @media(max-width:768px){
+
+    .solar-box{
+      padding:42px 24px;
+      border-radius:26px;
+    }
+
+    .solar-title{
+      font-size:2rem;
+      margin-bottom:16px;
+    }
+
+    .solar-desc{
+      font-size:.96rem;
+      line-height:1.8;
+    }
+
+    .solar-price{
+      margin-top:24px;
+      font-size:2.2rem;
+    }
+
+  }
+
+  /* MOBILE */
+
+  @media(max-width:480px){
+
+    .solar-box{
+      padding:34px 18px;
+      border-radius:22px;
+    }
+
+    .solar-title{
+      font-size:1.65rem;
+      line-height:1.2;
+    }
+
+    .solar-desc{
+      font-size:.92rem;
+      line-height:1.75;
+    }
+
+    .solar-price{
+      font-size:1.9rem;
+    }
+
+    .solar-sub{
+      font-size:.8rem;
+    }
+
   }
 
 /* ================= CONTACT ================= */
