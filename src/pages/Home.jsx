@@ -1598,7 +1598,7 @@ const Home = () => {
               </div>
 
               <h1>
-                Enterprise Security & <span>Solar Infrastructure</span>
+                  <span>Enterprise Security & Solar Infrastructure</span>
               </h1>
 
               <p>
