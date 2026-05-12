@@ -580,7 +580,6 @@ const Footer = () => {
               </div>
 
             </div>
-
             {/* MAPS */}
             
             <div style={styles.mapsColumn}>
@@ -591,11 +590,8 @@ const Footer = () => {
                 href="https://www.google.com/maps/search/?api=1&query=17.4578333,78.5448889"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  textDecoration: "none",
-                }}
+                style={{ textDecoration: "none" }}
               >
-            
                 <div
                   style={{
                     ...styles.mapCard,
@@ -613,11 +609,10 @@ const Footer = () => {
                     src="https://www.google.com/maps?q=17.4578333,78.5448889&z=16&output=embed"
                     style={styles.iframe}
                     loading="lazy"
-                    allowFullScreen=""
+                    allowFullScreen
                   />
             
                 </div>
-            
               </a>
             
               {/* SERVICE BRANCH */}
@@ -626,11 +621,8 @@ const Footer = () => {
                 href="https://www.google.com/maps/search/?api=1&query=17.4545812,78.5347582"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  textDecoration: "none",
-                }}
+                style={{ textDecoration: "none" }}
               >
-            
                 <div
                   style={{
                     ...styles.mapCard,
@@ -648,11 +640,10 @@ const Footer = () => {
                     src="https://www.google.com/maps?q=17.4545812,78.5347582&z=16&output=embed"
                     style={styles.iframe}
                     loading="lazy"
-                    allowFullScreen=""
+                    allowFullScreen
                   />
             
                 </div>
-            
               </a>
             
             </div>
