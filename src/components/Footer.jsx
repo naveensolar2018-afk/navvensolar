@@ -582,50 +582,80 @@ const Footer = () => {
             </div>
 
             {/* MAPS */}
-
+            
             <div style={styles.mapsColumn}>
-
-              <div
-                style={styles.mapCard}
-                className="footer-hover"
+            
+              {/* MAIN BRANCH */}
+            
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=17.4578333,78.5448889"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  textDecoration: "none",
+                }}
               >
-
-                <div style={styles.mapHeader}>
-                  MAIN BRANCH LOCATION
+            
+                <div
+                  style={{
+                    ...styles.mapCard,
+                    cursor: "pointer",
+                  }}
+                  className="footer-hover"
+                >
+            
+                  <div style={styles.mapHeader}>
+                    📍 MAIN BRANCH LOCATION
+                  </div>
+            
+                  <iframe
+                    title="Main Branch"
+                    src="https://www.google.com/maps?q=17.4578333,78.5448889&z=16&output=embed"
+                    style={styles.iframe}
+                    loading="lazy"
+                    allowFullScreen=""
+                  />
+            
                 </div>
-
-                <iframe
-                  title="Main Branch"
-                  src="https://maps.google.com/maps?ll=17.457833,78.544889&z=16&t=m&hl=en-GB&gl=US&mapclient=embed&q=17%C2%B027%2728.2%22N%2078%C2%B032%2741.6%22E%2017.457833%2C%2078.544889@17.4578333,78.54488889999999"
-                  style={styles.iframe}
-                  loading="lazy"
-                  allowFullScreen=""
-                />
-
-              </div>
-
-              <div
-                style={styles.mapCard}
-                className="footer-hover"
+            
+              </a>
+            
+              {/* SERVICE BRANCH */}
+            
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=17.4545812,78.5347582"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  textDecoration: "none",
+                }}
               >
-
-                <div style={styles.mapHeader}>
-                  SERVICE BRANCH LOCATION
+            
+                <div
+                  style={{
+                    ...styles.mapCard,
+                    cursor: "pointer",
+                  }}
+                  className="footer-hover"
+                >
+            
+                  <div style={styles.mapHeader}>
+                    📍 SERVICE BRANCH LOCATION
+                  </div>
+            
+                  <iframe
+                    title="Service Branch"
+                    src="https://www.google.com/maps?q=17.4545812,78.5347582&z=16&output=embed"
+                    style={styles.iframe}
+                    loading="lazy"
+                    allowFullScreen=""
+                  />
+            
                 </div>
-
-                <iframe
-                  title="Service Branch"
-                  src="https://maps.app.goo.gl/RDYhHgnVpkSpJqxf9?g_st=ac"
-                  style={styles.iframe}
-                  loading="lazy"
-                  allowFullScreen=""
-                />
-
-              </div>
-
+            
+              </a>
+            
             </div>
-
-          </div>
 
           {/* COVERAGE */}
 
