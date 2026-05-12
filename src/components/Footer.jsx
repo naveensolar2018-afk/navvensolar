@@ -596,7 +596,7 @@ const Footer = () => {
 
                 <iframe
                   title="Main Branch"
-                  src="https://www.google.com/maps?q=17.4578333,78.5448889&z=16&output=embed"
+                  src="https://maps.google.com/maps?ll=17.457833,78.544889&z=16&t=m&hl=en-GB&gl=US&mapclient=embed&q=17%C2%B027%2728.2%22N%2078%C2%B032%2741.6%22E%2017.457833%2C%2078.544889@17.4578333,78.54488889999999"
                   style={styles.iframe}
                   loading="lazy"
                   allowFullScreen=""
@@ -615,7 +615,7 @@ const Footer = () => {
 
                 <iframe
                   title="Service Branch"
-                  src="https://www.google.com/maps?q=17.4545812,78.5347582&z=16&output=embed"
+                  src="https://maps.app.goo.gl/RDYhHgnVpkSpJqxf9?g_st=ac"
                   style={styles.iframe}
                   loading="lazy"
                   allowFullScreen=""
