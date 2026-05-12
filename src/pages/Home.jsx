@@ -2049,7 +2049,7 @@ const Home = () => {
               <h4>Service Branch</h4>
 
               <a
-                href="https://google.com/maps/place/NAVEEN+CCTV+CAMERA%26SOLAR+CAMERA/@17.4545863,78.5321833,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9b3f40bf435f:0x1dceaf19a10ff78e!8m2!3d17.4545812!4d78.5347582!16s%2Fg%2F11nxqg696w"
+                href="https://maps.app.goo.gl/RDYhHgnVpkSpJqxf9?g_st=ac"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -2073,7 +2073,7 @@ const Home = () => {
               <h4>Main Branch</h4>
 
               <a
-                href="https://www.google.com/maps?q=17.45783233642578,78.5448989868164&z=17&hl=en"
+                href="https://maps.google.com/maps?ll=17.457833,78.544889&z=16&t=m&hl=en-GB&gl=US&mapclient=embed&q=17%C2%B027%2728.2%22N%2078%C2%B032%2741.6%22E%2017.457833%2C%2078.544889@17.4578333,78.54488889999999"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -2099,7 +2099,7 @@ const Home = () => {
           </a>
 
           <a
-            href="https://maps.google.com/maps?ll=17.457833,78.544889&z=16&t=m&hl=en-GB&gl=US&mapclient=embed&q=17%C2%B027%2728.2%22N%2078%C2%B032%2741.6%22E%2017.457833%2C%2078.544889@17.4578333,78.54488889999999"
+            href="https://maps.app.goo.gl/RDYhHgnVpkSpJqxf9?g_st=ac"
             target="_blank"
             rel="noopener noreferrer"
             className="secondary-contact-btn"
