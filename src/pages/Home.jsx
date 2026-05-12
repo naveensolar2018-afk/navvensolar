@@ -668,6 +668,221 @@ const Home = () => {
 
   }
 
+/* ========================================= */
+/* TRUSTED COMPANIES */
+/* ========================================= */
+
+.clients-section{
+  padding:120px 0;
+  background:
+  linear-gradient(
+    180deg,
+    #f8fbff 0%,
+    #ffffff 100%
+  );
+
+  overflow:hidden;
+  position:relative;
+}
+
+.clients-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  radial-gradient(
+    circle at top right,
+    rgba(37,99,235,.06),
+    transparent 35%
+  );
+}
+
+.clients-scroll{
+  position:relative;
+  overflow:hidden;
+  width:100%;
+  margin-top:70px;
+}
+
+.clients-track{
+  display:flex;
+  gap:28px;
+  width:max-content;
+
+  animation:
+  scrollClients 38s linear infinite;
+}
+
+.clients-track:hover{
+  animation-play-state:paused;
+}
+
+@keyframes scrollClients{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+
+}
+
+/* CARD */
+
+.client-card{
+  width:320px;
+  min-width:320px;
+
+  background:#fff;
+
+  border:1px solid #dbeafe;
+
+  border-radius:32px;
+
+  padding:42px 30px;
+
+  text-align:center;
+
+  transition:.4s ease;
+
+  box-shadow:
+  0 10px 35px rgba(15,23,42,.05);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.client-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(37,99,235,.04),
+    transparent 60%
+  );
+
+  opacity:0;
+
+  transition:.4s ease;
+}
+
+.client-card:hover{
+  transform:translateY(-10px);
+
+  border-color:#93c5fd;
+
+  box-shadow:
+  0 25px 60px rgba(37,99,235,.12);
+}
+
+.client-card:hover::before{
+  opacity:1;
+}
+
+/* LOGO */
+
+.client-logo-box{
+  width:130px;
+  height:130px;
+
+  margin:auto auto 28px;
+
+  border-radius:28px;
+
+  background:#f8fafc;
+
+  border:1px solid #e2e8f0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  transition:.35s ease;
+}
+
+.client-card:hover .client-logo-box{
+  transform:scale(1.05);
+}
+
+.client-logo-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+/* TEXT */
+
+.client-name{
+  font-size:1.2rem;
+  font-weight:800;
+  line-height:1.6;
+  color:#0f172a;
+}
+
+.client-sub{
+  margin-top:12px;
+
+  color:#64748b;
+
+  font-size:.9rem;
+
+  letter-spacing:.04em;
+}
+
+/* TABLET */
+
+@media(max-width:768px){
+
+  .clients-section{
+    padding:90px 0;
+  }
+
+  .clients-track{
+    gap:18px;
+  }
+
+  .client-card{
+    width:240px;
+    min-width:240px;
+
+    padding:28px 20px;
+
+    border-radius:24px;
+  }
+
+  .client-logo-box{
+    width:90px;
+    height:90px;
+
+    border-radius:22px;
+  }
+
+  .client-name{
+    font-size:1rem;
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+  .client-card{
+    width:210px;
+    min-width:210px;
+  }
+
+}
+
 /* ================= CONTACT ================= */
 
 .contact{
@@ -1245,243 +1460,6 @@ const Home = () => {
     font-size:.8rem;
     line-height:1.5;
   }
-
-
-
-
-
-
-
-
-
-
-/* ========================================= */
-/* TRUSTED COMPANIES */
-/* ========================================= */
-
-.clients-section{
-  padding:120px 0;
-  background:
-  linear-gradient(
-    180deg,
-    #f8fbff 0%,
-    #ffffff 100%
-  );
-
-  overflow:hidden;
-  position:relative;
-}
-
-.clients-section::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-  radial-gradient(
-    circle at top right,
-    rgba(37,99,235,.06),
-    transparent 35%
-  );
-}
-
-.clients-scroll{
-  position:relative;
-  overflow:hidden;
-  width:100%;
-  margin-top:70px;
-}
-
-.clients-track{
-  display:flex;
-  gap:28px;
-  width:max-content;
-
-  animation:
-  scrollClients 38s linear infinite;
-}
-
-.clients-track:hover{
-  animation-play-state:paused;
-}
-
-@keyframes scrollClients{
-
-  from{
-    transform:translateX(0);
-  }
-
-  to{
-    transform:translateX(-50%);
-  }
-
-}
-
-/* CARD */
-
-.client-card{
-  width:320px;
-  min-width:320px;
-
-  background:#fff;
-
-  border:1px solid #dbeafe;
-
-  border-radius:32px;
-
-  padding:42px 30px;
-
-  text-align:center;
-
-  transition:.4s ease;
-
-  box-shadow:
-  0 10px 35px rgba(15,23,42,.05);
-
-  position:relative;
-
-  overflow:hidden;
-}
-
-.client-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-  linear-gradient(
-    135deg,
-    rgba(37,99,235,.04),
-    transparent 60%
-  );
-
-  opacity:0;
-
-  transition:.4s ease;
-}
-
-.client-card:hover{
-  transform:translateY(-10px);
-
-  border-color:#93c5fd;
-
-  box-shadow:
-  0 25px 60px rgba(37,99,235,.12);
-}
-
-.client-card:hover::before{
-  opacity:1;
-}
-
-/* LOGO */
-
-.client-logo-box{
-  width:130px;
-  height:130px;
-
-  margin:auto auto 28px;
-
-  border-radius:28px;
-
-  background:#f8fafc;
-
-  border:1px solid #e2e8f0;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  padding:20px;
-
-  transition:.35s ease;
-}
-
-.client-card:hover .client-logo-box{
-  transform:scale(1.05);
-}
-
-.client-logo-box img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-/* TEXT */
-
-.client-name{
-  font-size:1.2rem;
-  font-weight:800;
-  line-height:1.6;
-  color:#0f172a;
-}
-
-.client-sub{
-  margin-top:12px;
-
-  color:#64748b;
-
-  font-size:.9rem;
-
-  letter-spacing:.04em;
-}
-
-/* TABLET */
-
-@media(max-width:768px){
-
-  .clients-section{
-    padding:90px 0;
-  }
-
-  .clients-track{
-    gap:18px;
-  }
-
-  .client-card{
-    width:240px;
-    min-width:240px;
-
-    padding:28px 20px;
-
-    border-radius:24px;
-  }
-
-  .client-logo-box{
-    width:90px;
-    height:90px;
-
-    border-radius:22px;
-  }
-
-  .client-name{
-    font-size:1rem;
-  }
-
-}
-
-/* MOBILE */
-
-@media(max-width:480px){
-
-  .client-card{
-    width:210px;
-    min-width:210px;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   /* CONTACT */
 
