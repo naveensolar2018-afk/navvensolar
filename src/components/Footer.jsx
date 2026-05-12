@@ -444,7 +444,7 @@ const Footer = () => {
                   </div>
 
                   <a
-                    href="https://google.com/maps/place/NAVEEN+CCTV+CAMERA%26SOLAR+CAMERA/@17.4545863,78.5321833,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9b3f40bf435f:0x1dceaf19a10ff78e!8m2!3d17.4545812!4d78.5347582!16s%2Fg%2F11nxqg696w"
+                    href="https://maps.app.goo.gl/RDYhHgnVpkSpJqxf9?g_st=ac"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={styles.mapLink}
