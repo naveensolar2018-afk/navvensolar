@@ -1249,6 +1249,12 @@ const Home = () => {
 
 
 
+
+
+
+
+
+
 /* ========================================= */
 /* TRUSTED COMPANIES */
 /* ========================================= */
@@ -1261,62 +1267,73 @@ const Home = () => {
     #f8fbff 0%,
     #ffffff 100%
   );
-  position:relative;
+
   overflow:hidden;
+  position:relative;
 }
 
 .clients-section::before{
   content:"";
   position:absolute;
-  width:700px;
-  height:700px;
+  inset:0;
+
   background:
   radial-gradient(
-    circle,
+    circle at top right,
     rgba(37,99,235,.06),
-    transparent 70%
+    transparent 35%
   );
-  top:-250px;
-  right:-200px;
 }
 
-.clients-wrapper{
-  margin-top:70px;
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(280px,1fr));
-
-  gap:28px;
-
+.clients-scroll{
   position:relative;
-  z-index:2;
+  overflow:hidden;
+  width:100%;
+  margin-top:70px;
+}
+
+.clients-track{
+  display:flex;
+  gap:28px;
+  width:max-content;
+
+  animation:
+  scrollClients 38s linear infinite;
+}
+
+.clients-track:hover{
+  animation-play-state:paused;
+}
+
+@keyframes scrollClients{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+
 }
 
 /* CARD */
 
 .client-card{
-  background:#ffffff;
+  width:320px;
+  min-width:320px;
+
+  background:#fff;
 
   border:1px solid #dbeafe;
 
   border-radius:32px;
 
-  padding:42px 34px;
+  padding:42px 30px;
 
-  min-height:300px;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
   text-align:center;
 
-  transition:
-  transform .4s ease,
-  box-shadow .4s ease,
-  border-color .4s ease;
+  transition:.4s ease;
 
   box-shadow:
   0 10px 35px rgba(15,23,42,.05);
@@ -1334,17 +1351,17 @@ const Home = () => {
   background:
   linear-gradient(
     135deg,
-    rgba(37,99,235,.03),
+    rgba(37,99,235,.04),
     transparent 60%
   );
 
   opacity:0;
+
   transition:.4s ease;
 }
 
 .client-card:hover{
-  transform:
-  translateY(-10px);
+  transform:translateY(-10px);
 
   border-color:#93c5fd;
 
@@ -1362,7 +1379,9 @@ const Home = () => {
   width:130px;
   height:130px;
 
-  border-radius:30px;
+  margin:auto auto 28px;
+
+  border-radius:28px;
 
   background:#f8fafc;
 
@@ -1372,23 +1391,19 @@ const Home = () => {
   align-items:center;
   justify-content:center;
 
-  padding:22px;
+  padding:20px;
 
-  margin-bottom:30px;
-
-  transition:.4s ease;
+  transition:.35s ease;
 }
 
 .client-card:hover .client-logo-box{
   transform:scale(1.05);
-  background:#fff;
 }
 
 .client-logo-box img{
   width:100%;
   height:100%;
   object-fit:contain;
-  filter:contrast(1.05);
 }
 
 /* TEXT */
@@ -1396,134 +1411,73 @@ const Home = () => {
 .client-name{
   font-size:1.2rem;
   font-weight:800;
-  line-height:1.5;
+  line-height:1.6;
   color:#0f172a;
-
-  max-width:260px;
 }
 
 .client-sub{
-  margin-top:14px;
+  margin-top:12px;
 
   color:#64748b;
 
-  font-size:.92rem;
+  font-size:.9rem;
 
-  letter-spacing:.03em;
+  letter-spacing:.04em;
 }
 
-/* ========================================= */
-/* LARGE DESKTOP */
-/* ========================================= */
-
-@media(min-width:1400px){
-
-  .clients-wrapper{
-    grid-template-columns:
-    repeat(4,1fr);
-  }
-
-}
-
-/* ========================================= */
-/* LAPTOP */
-/* ========================================= */
-
-@media(max-width:1200px){
-
-  .clients-wrapper{
-    grid-template-columns:
-    repeat(3,1fr);
-  }
-
-}
-
-/* ========================================= */
 /* TABLET */
-/* ========================================= */
 
-@media(max-width:992px){
+@media(max-width:768px){
 
   .clients-section{
     padding:90px 0;
   }
 
-  .clients-wrapper{
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:22px;
-  }
-
-  .client-card{
-    min-height:260px;
-    padding:32px 24px;
-  }
-
-  .client-logo-box{
-    width:110px;
-    height:110px;
-  }
-
-}
-
-/* ========================================= */
-/* MOBILE */
-/* ========================================= */
-
-@media(max-width:768px){
-
-  .clients-wrapper{
-    grid-template-columns:
-    repeat(2,1fr);
-
+  .clients-track{
     gap:18px;
   }
 
   .client-card{
-    min-height:220px;
+    width:240px;
+    min-width:240px;
+
+    padding:28px 20px;
 
     border-radius:24px;
-
-    padding:24px 18px;
   }
 
   .client-logo-box{
-    width:85px;
-    height:85px;
+    width:90px;
+    height:90px;
 
     border-radius:22px;
-
-    padding:14px;
-
-    margin-bottom:20px;
   }
 
   .client-name{
     font-size:1rem;
   }
 
-  .client-sub{
-    font-size:.82rem;
-  }
-
 }
 
-/* ========================================= */
-/* SMALL MOBILE */
-/* ========================================= */
+/* MOBILE */
 
 @media(max-width:480px){
 
-  .clients-wrapper{
-    grid-template-columns:1fr;
-  }
-
   .client-card{
-    min-height:210px;
+    width:210px;
+    min-width:210px;
   }
 
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1841,6 +1795,15 @@ const Home = () => {
       </div>
 
 
+
+
+
+
+
+
+
+
+
 {/* TRUSTED COMPANIES */}
 
 <section className="clients-section">
@@ -1862,36 +1825,40 @@ const Home = () => {
 
     </div>
 
-    <div className="clients-wrapper fade-in">
+    <div className="clients-scroll">
 
-      {trustedCompanies.map((company, index) => (
+      <div className="clients-track">
 
-        <div
-          className="client-card fade-in"
-          key={index}
-        >
+        {[...trustedCompanies, ...trustedCompanies].map((company, index) => (
 
-          <div className="client-logo-box">
+          <div
+            className="client-card"
+            key={index}
+          >
 
-            <img
-              src={company.logo}
-              alt={company.name}
-              loading="lazy"
-            />
+            <div className="client-logo-box">
+
+              <img
+                src={company.logo}
+                alt={company.name}
+                loading="lazy"
+              />
+
+            </div>
+
+            <div className="client-name">
+              {company.name}
+            </div>
+
+            <div className="client-sub">
+              Enterprise Client
+            </div>
 
           </div>
 
-          <div className="client-name">
-            {company.name}
-          </div>
+        ))}
 
-          <div className="client-sub">
-            Enterprise Client
-          </div>
-
-        </div>
-
-      ))}
+      </div>
 
     </div>
 
@@ -1901,6 +1868,13 @@ const Home = () => {
 
 
 
+
+
+
+
+
+
+      
       
       {/* CONTACT SECTION */}
 <section className="contact" id="contact">
