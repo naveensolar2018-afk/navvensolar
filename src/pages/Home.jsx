@@ -118,7 +118,40 @@ const Home = () => {
     },
   ];
 
-
+  const trustedCompanies = [
+    {
+      name: "Alpha Design Private Ltd",
+      logo: "alpha.png",
+    },
+    {
+      name: "DHL Logistics",
+      logo: "dhl.png",
+    },
+    {
+      name: "Gandour India Food Processing Pvt. Ltd",
+      logo: "gandour.png",
+    },
+    {
+      name: "Doctor C",
+      logo: "doctorc.png",
+    },
+    {
+      name: "Mayuri Farms",
+      logo: "mayuri.png",
+    },
+    {
+      name: "Sneha Farms",
+      logo: "sneha.png",
+    },
+    {
+      name: "Indian Airforce Dundigal",
+      logo: "airforce.png",
+    },
+    {
+      name: "RTC Kalabhavan",
+      logo: "rtc.png",
+    },
+  ];
 
   const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap');
@@ -1213,6 +1246,121 @@ const Home = () => {
     line-height:1.5;
   }
 
+/* ========================================= */
+/* TRUSTED COMPANIES */
+/* ========================================= */
+
+.clients-section{
+  padding:100px 0;
+  background:
+  linear-gradient(
+    180deg,
+    #f8fbff 0%,
+    #ffffff 100%
+  );
+}
+
+.clients-wrapper{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+}
+
+.client-card{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:26px;
+  padding:28px 24px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:.35s ease;
+  min-height:220px;
+  box-shadow:
+  0 10px 30px rgba(15,23,42,.04);
+}
+
+.client-card:hover{
+  transform:translateY(-8px);
+  border-color:#bfdbfe;
+  box-shadow:
+  0 20px 40px rgba(37,99,235,.08);
+}
+
+.client-logo-box{
+  width:110px;
+  height:110px;
+  border-radius:22px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  margin-bottom:22px;
+}
+
+.client-logo-box img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+.client-name{
+  font-size:1rem;
+  font-weight:700;
+  color:#0f172a;
+  line-height:1.6;
+}
+
+.client-sub{
+  margin-top:10px;
+  color:#64748b;
+  font-size:.88rem;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .clients-section{
+    padding:75px 0;
+  }
+
+  .clients-wrapper{
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+
+  .client-card{
+    min-height:190px;
+    padding:20px 16px;
+    border-radius:22px;
+  }
+
+  .client-logo-box{
+    width:85px;
+    height:85px;
+    border-radius:18px;
+  }
+
+  .client-name{
+    font-size:.88rem;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .clients-wrapper{
+    grid-template-columns:1fr;
+  }
+
+}
   /* CONTACT */
 
   .contact-wrapper{
@@ -1524,6 +1672,68 @@ const Home = () => {
 
       </div>
 
+
+{/* TRUSTED COMPANIES */}
+
+<section className="clients-section">
+
+  <div className="container">
+
+    <div className="section-head fade-in">
+
+      <h2>
+        Trusted By Leading Organizations
+      </h2>
+
+      <p>
+        Delivering enterprise CCTV surveillance,
+        solar infrastructure and security solutions
+        for corporate, industrial, logistics,
+        government and commercial sectors.
+      </p>
+
+    </div>
+
+    <div className="clients-wrapper">
+
+      {trustedCompanies.map((company, index) => (
+
+        <div
+          className="client-card fade-in"
+          key={index}
+        >
+
+          <div className="client-logo-box">
+
+            <img
+              src={company.logo}
+              alt={company.name}
+              loading="lazy"
+            />
+
+          </div>
+
+          <div className="client-name">
+            {company.name}
+          </div>
+
+          <div className="client-sub">
+            Enterprise Client
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+      
       {/* CONTACT SECTION */}
 <section className="contact" id="contact">
 
