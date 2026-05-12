@@ -1579,6 +1579,80 @@ const Home = () => {
   }
 
 }
+
+/* ========================================= */
+/* DARK MODE FIX */
+/* ========================================= */
+
+@media (prefers-color-scheme: dark){
+
+  body{
+    background:#050816;
+    color:#f8fafc;
+  }
+
+  .home{
+    color:#f8fafc;
+  }
+
+  /* SECTION HEADINGS */
+
+  .section-head h2,
+  .solar-title,
+  .contact-heading h2,
+  .client-name,
+  .service-card h3,
+  .price-card h3,
+  .contact-card h4{
+    color:#ffffff !important;
+  }
+
+  .section-head p,
+  .solar-desc,
+  .solar-sub,
+  .client-sub,
+  .service-card p,
+  .contact-card p,
+  .contact-heading p,
+  .price-card p,
+  .service-list-item{
+    color:#cbd5e1 !important;
+  }
+
+  /* WHITE CARDS */
+
+  .service-card,
+  .price-card,
+  .client-card,
+  .contact-card,
+  .solar-box,
+  .contact-wrapper{
+    background:#0f172a !important;
+    border-color:#1e293b !important;
+  }
+
+  /* LIGHT BACKGROUNDS */
+
+  .clients-section,
+  .contact{
+    background:#020617 !important;
+  }
+
+  .client-logo-box{
+    background:#111827 !important;
+    border-color:#1e293b !important;
+  }
+
+  .service-list-item{
+    background:#0f172a !important;
+    border-color:#1e293b !important;
+  }
+
+  .contact-right{
+    background:#020617;
+  }
+
+}
   `;
 
   return (
