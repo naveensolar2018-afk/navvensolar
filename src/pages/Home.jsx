@@ -1246,113 +1246,272 @@ const Home = () => {
     line-height:1.5;
   }
 
+
+
+
 /* ========================================= */
 /* TRUSTED COMPANIES */
 /* ========================================= */
 
 .clients-section{
-  padding:100px 0;
+  padding:120px 0;
   background:
   linear-gradient(
     180deg,
     #f8fbff 0%,
     #ffffff 100%
   );
+  position:relative;
+  overflow:hidden;
+}
+
+.clients-section::before{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:
+  radial-gradient(
+    circle,
+    rgba(37,99,235,.06),
+    transparent 70%
+  );
+  top:-250px;
+  right:-200px;
 }
 
 .clients-wrapper{
-  margin-top:60px;
+  margin-top:70px;
+
   display:grid;
+
   grid-template-columns:
-  repeat(auto-fit,minmax(220px,1fr));
-  gap:24px;
+  repeat(auto-fit,minmax(280px,1fr));
+
+  gap:28px;
+
+  position:relative;
+  z-index:2;
 }
 
+/* CARD */
+
 .client-card{
-  background:#fff;
-  border:1px solid #e2e8f0;
-  border-radius:26px;
-  padding:28px 24px;
+  background:#ffffff;
+
+  border:1px solid #dbeafe;
+
+  border-radius:32px;
+
+  padding:42px 34px;
+
+  min-height:300px;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
-  transition:.35s ease;
-  min-height:220px;
+
+  transition:
+  transform .4s ease,
+  box-shadow .4s ease,
+  border-color .4s ease;
+
   box-shadow:
-  0 10px 30px rgba(15,23,42,.04);
+  0 10px 35px rgba(15,23,42,.05);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.client-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(37,99,235,.03),
+    transparent 60%
+  );
+
+  opacity:0;
+  transition:.4s ease;
 }
 
 .client-card:hover{
-  transform:translateY(-8px);
-  border-color:#bfdbfe;
+  transform:
+  translateY(-10px);
+
+  border-color:#93c5fd;
+
   box-shadow:
-  0 20px 40px rgba(37,99,235,.08);
+  0 25px 60px rgba(37,99,235,.12);
 }
 
+.client-card:hover::before{
+  opacity:1;
+}
+
+/* LOGO */
+
 .client-logo-box{
-  width:110px;
-  height:110px;
-  border-radius:22px;
+  width:130px;
+  height:130px;
+
+  border-radius:30px;
+
   background:#f8fafc;
+
   border:1px solid #e2e8f0;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:16px;
-  margin-bottom:22px;
+
+  padding:22px;
+
+  margin-bottom:30px;
+
+  transition:.4s ease;
+}
+
+.client-card:hover .client-logo-box{
+  transform:scale(1.05);
+  background:#fff;
 }
 
 .client-logo-box img{
-  max-width:100%;
-  max-height:100%;
+  width:100%;
+  height:100%;
   object-fit:contain;
+  filter:contrast(1.05);
 }
 
+/* TEXT */
+
 .client-name{
-  font-size:1rem;
-  font-weight:700;
+  font-size:1.2rem;
+  font-weight:800;
+  line-height:1.5;
   color:#0f172a;
-  line-height:1.6;
+
+  max-width:260px;
 }
 
 .client-sub{
-  margin-top:10px;
+  margin-top:14px;
+
   color:#64748b;
-  font-size:.88rem;
+
+  font-size:.92rem;
+
+  letter-spacing:.03em;
 }
 
-/* MOBILE */
+/* ========================================= */
+/* LARGE DESKTOP */
+/* ========================================= */
 
-@media(max-width:768px){
+@media(min-width:1400px){
+
+  .clients-wrapper{
+    grid-template-columns:
+    repeat(4,1fr);
+  }
+
+}
+
+/* ========================================= */
+/* LAPTOP */
+/* ========================================= */
+
+@media(max-width:1200px){
+
+  .clients-wrapper{
+    grid-template-columns:
+    repeat(3,1fr);
+  }
+
+}
+
+/* ========================================= */
+/* TABLET */
+/* ========================================= */
+
+@media(max-width:992px){
 
   .clients-section{
-    padding:75px 0;
+    padding:90px 0;
   }
 
   .clients-wrapper{
-    grid-template-columns:1fr 1fr;
-    gap:16px;
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:22px;
   }
 
   .client-card{
-    min-height:190px;
-    padding:20px 16px;
-    border-radius:22px;
+    min-height:260px;
+    padding:32px 24px;
+  }
+
+  .client-logo-box{
+    width:110px;
+    height:110px;
+  }
+
+}
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
+
+@media(max-width:768px){
+
+  .clients-wrapper{
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:18px;
+  }
+
+  .client-card{
+    min-height:220px;
+
+    border-radius:24px;
+
+    padding:24px 18px;
   }
 
   .client-logo-box{
     width:85px;
     height:85px;
-    border-radius:18px;
+
+    border-radius:22px;
+
+    padding:14px;
+
+    margin-bottom:20px;
   }
 
   .client-name{
-    font-size:.88rem;
+    font-size:1rem;
+  }
+
+  .client-sub{
+    font-size:.82rem;
   }
 
 }
+
+/* ========================================= */
+/* SMALL MOBILE */
+/* ========================================= */
 
 @media(max-width:480px){
 
@@ -1360,7 +1519,16 @@ const Home = () => {
     grid-template-columns:1fr;
   }
 
+  .client-card{
+    min-height:210px;
+  }
+
 }
+
+
+
+
+
   /* CONTACT */
 
   .contact-wrapper{
@@ -1694,7 +1862,7 @@ const Home = () => {
 
     </div>
 
-    <div className="clients-wrapper">
+    <div className="clients-wrapper fade-in">
 
       {trustedCompanies.map((company, index) => (
 
