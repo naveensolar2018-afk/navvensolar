@@ -580,73 +580,83 @@ const Footer = () => {
               </div>
 
             </div>
-            {/* MAPS */}
-            
-            <div style={styles.mapsColumn}>
-            
-              {/* MAIN BRANCH */}
-            
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=17.4578333,78.5448889"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none" }}
+          {/* MAPS */}
+          
+          <div style={styles.mapsColumn}>
+          
+            {/* MAIN BRANCH */}
+          
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=17.4578333,78.5448889"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+          
+              <div
+                style={{
+                  ...styles.mapCard,
+                  cursor: "pointer",
+                }}
+                className="footer-hover"
               >
-                <div
-                  style={{
-                    ...styles.mapCard,
-                    cursor: "pointer",
-                  }}
-                  className="footer-hover"
-                >
-            
-                  <div style={styles.mapHeader}>
-                    📍 MAIN BRANCH LOCATION
-                  </div>
-            
-                  <iframe
-                    title="Main Branch"
-                    src="https://www.google.com/maps?q=17.4578333,78.5448889&z=16&output=embed"
-                    style={styles.iframe}
-                    loading="lazy"
-                    allowFullScreen
-                  />
-            
+          
+                <div style={styles.mapHeader}>
+                  📍 MAIN BRANCH LOCATION
                 </div>
-              </a>
-            
-              {/* SERVICE BRANCH */}
-            
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=17.4545812,78.5347582"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none" }}
+          
+                <iframe
+                  title="Main Branch"
+                  src="https://www.google.com/maps?q=17.4578333,78.5448889&z=16&output=embed"
+                  style={styles.iframe}
+                  loading="lazy"
+                  allowFullScreen
+                />
+          
+              </div>
+          
+            </a>
+          
+            {/* SERVICE BRANCH */}
+          
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=17.4545812,78.5347582"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+          
+              <div
+                style={{
+                  ...styles.mapCard,
+                  cursor: "pointer",
+                }}
+                className="footer-hover"
               >
-                <div
-                  style={{
-                    ...styles.mapCard,
-                    cursor: "pointer",
-                  }}
-                  className="footer-hover"
-                >
-            
-                  <div style={styles.mapHeader}>
-                    📍 SERVICE BRANCH LOCATION
-                  </div>
-            
-                  <iframe
-                    title="Service Branch"
-                    src="https://www.google.com/maps?q=17.4545812,78.5347582&z=16&output=embed"
-                    style={styles.iframe}
-                    loading="lazy"
-                    allowFullScreen
-                  />
-            
+          
+                <div style={styles.mapHeader}>
+                  📍 SERVICE BRANCH LOCATION
                 </div>
-              </a>
-            
-            </div>
+          
+                <iframe
+                  title="Service Branch"
+                  src="https://www.google.com/maps?q=17.4545812,78.5347582&z=16&output=embed"
+                  style={styles.iframe}
+                  loading="lazy"
+                  allowFullScreen
+                />
+          
+              </div>
+          
+            </a>
+          
+          </div>
+          
+          </div>
 
           {/* COVERAGE */}
 
