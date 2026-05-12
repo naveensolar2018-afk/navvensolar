@@ -121,7 +121,7 @@ const Home = () => {
   const trustedCompanies = [
     {
       name: "Alpha Design Private Ltd",
-      logo: "alpha.png",
+      logo: "alpha.jpg",
     },
     {
       name: "DHL Logistics",
@@ -137,11 +137,11 @@ const Home = () => {
     },
     {
       name: "Mayuri Farms",
-      logo: "mayuri.png",
+      logo: "mayuri.jpg",
     },
     {
       name: "Sneha Farms",
-      logo: "sneha.png",
+      logo: "sneha.jpg",
     },
     {
       name: "Indian Airforce Dundigal",
@@ -149,7 +149,7 @@ const Home = () => {
     },
     {
       name: "RTC Kalabhavan",
-      logo: "rtc.png",
+      logo: "rtc.jpg",
     },
   ];
 
